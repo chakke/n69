@@ -1,1 +1,66 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<!-- logged out menu -->
+<ion-menu id="logoutNew69" side="left" type="overlay" [content]="appcontent">
+    <div id="mainbackground" class="mainbackground">
+        <div class="border1">
+            <div class="border2">
+                <div class="border3"></div>
+            </div>
+        </div>
+        <div class="border4">
+            <div class="border5">
+                <img class="image" id="avatarimage">
+            </div>
+        </div>
+        <div class="logout">
+            <span>{{mNew69Menu.username}}</span>
+            <div class="logoutbtn" (tap)="onClickGoLogout()">Đăng xuất</div>
+        </div>
+        <div class="list">
+            <ion-list class="list-title" no-lines>
+                <div *ngFor="let category of mNew69Menu.categories">
+                    <ion-list-header class="list-header" no-lines>
+                        {{category.name}}
+                    </ion-list-header>
+                    <ion-item [class.activated]="item.isActive" *ngFor="let item of category.items" (click)="onClickNew69Item(category,item)">
+                        <ion-icon class="list-icon" name="{{item.icon}}"></ion-icon>
+                        <label class="list-label">{{item.name}}</label>
+                    </ion-item>
+                </div>
+            </ion-list>
+        </div>
+    </div>
+</ion-menu>
+
+<!-- logged in menu -->
+<ion-menu id="loginNew69" side="left" type="overlay" [content]="appcontent">
+    <div id="mainbackground" class="mainbackground">
+        <div class="border1">
+            <div class="border2">
+                <div class="border3"></div>
+            </div>
+        </div>
+        <div class="border4">
+            <div class="border5">
+                <img class="image" id="avatarimage">
+            </div>
+        </div>
+        <div class="login">
+            <span (tap)="onClickLogin()">Đăng nhập</span>
+        </div>
+        <div class="list">
+            <div class="list-title">
+                <div *ngFor="let category of mNew69Menu.categories">
+                    <div class="list-header">
+                        {{category.name}}
+                    </div>
+                    <div class="list-item" [class.activated]="item.isActive" *ngFor="let item of category.items" (tap)="onClickItem(category,item)">
+                            <ion-icon class="list-icon" name="{{item.icon}}"></ion-icon>
+                            <label class="list-label">{{item.name}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-menu>
+
+<ion-nav #appcontent [root]="rootPage"></ion-nav>

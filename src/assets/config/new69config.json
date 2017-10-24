@@ -1,0 +1,367 @@
+{
+    "version": "1.0",
+    "menuTool": {
+        "id": 0,
+        "name": "new69",
+        "active": true,
+        "username": "adm",
+        "categories": [
+            {
+                "id": 0,
+                "name": "Cá nhân",
+                "items": [
+                    {
+                        "id": 0,
+                        "name": "Tìm kiếm",
+                        "icon": "search",
+                        "page": "SearchPage",
+                        "isActive": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "Tùy chọn chuyên mục",
+                        "icon": "list",
+                        "page": "ListPage",
+                        "isActive": false
+                    },
+                    {
+                        "id": 2,
+                        "name": "Tin đã đọc",
+                        "icon": "ios-checkbox-outline",
+                        "page": "PostReadPage",
+                        "isActive": false
+                    },
+                    {
+                        "id": 3,
+                        "name": "Tin đã lưu",
+                        "icon": "ios-bookmark-outline",
+                        "page": "PostSavedPage",
+                        "isLogin": false,
+                        "isActive": false
+                    },
+                    {
+                        "id": 4,
+                        "name": "Bình luận của bạn",
+                        "icon": "ios-chatboxes-outline",
+                        "page": "CommentPage",
+                        "isLogin": false,
+                        "isActive": false
+                    }
+                ]
+            },
+            {
+                "id": 1,
+                "name": "Cài đặt",
+                "items": [
+                    {
+                        "id": 0,
+                        "name": "Nhận thông báo",
+                        "icon": "ios-notifications-outline",
+                        "page": "NoficationPage",
+                        "isActive": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "Thông tin",
+                        "icon": "ios-information-circle-outline",
+                        "page": "BrightPage",
+                        "isActive": false
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "name": "Liên hệ",
+                "items": [
+                    {
+                        "id": 0,
+                        "name": "Conntact",
+                        "icon": "ios-mail-outline",
+                        "page": "ContactPage",
+                        "isActive": false
+                    }
+                ]
+            }
+        ]
+    },
+    "menuTitle": {
+        "id": 0,
+        "name": "listTitle",
+        "categorieName": [
+            {
+                "id": 0,
+                "stringId": "0",
+                "name": "Giáo dục",
+                "icon": "ios-school-outline",
+                "isShow": true
+            },
+            {
+                "id": 1,
+                "stringId": "1",
+                "name": "Đào tạo - Thi cử",
+                "icon": "ios-book-outline",
+                "isShow": true
+            },
+            {
+                "id": 2,
+                "stringId": "2",
+                "name": "CNTT - Viễn thông",
+                "icon": "laptop",
+                "isShow": true
+            },
+            {
+                "id": 3,
+                "stringId": "3",
+                "name": "Giải trí",
+                "icon": "ios-game-controller-b-outline",
+                "isShow": true
+            },
+            {
+                "id": 4,
+                "stringId": "4",
+                "name": "Pháp luật",
+                "icon": "ios-color-filter-outline",
+                "isShow": true
+            },
+            {
+                "id": 5,
+                "stringId": "5",
+                "name": "Sức khỏe - Y tế",
+                "icon": "ios-add-circle-outline",
+                "isShow": true
+            },
+            {
+                "id": 6,
+                "stringId": "6",
+                "name": "Bóng đá",
+                "icon": "ios-football",
+                "isShow": true
+            },
+            {
+                "id": 7,
+                "stringId": "7",
+                "name": "Hình sự - Dân sự",
+                "icon": "ios-bonfire-outline",
+                "isShow": true
+            },
+            {
+                "id": 8,
+                "stringId": "8",
+                "name": "Thế giới",
+                "icon": "ios-globe-outline",
+                "isShow": true
+            },
+            {
+                "id": 9,
+                "stringId": "9",
+                "name": "Lao động - Việc làm",
+                "icon": "ios-hammer-outline",
+                "isShow": true
+            },
+            {
+                "id": 10,
+                "stringId": "10",
+                "name": "Du lịch",
+                "icon": "ios-rose-outline",
+                "isShow": true
+            }
+            ,
+            {
+                "id": 11,
+                "stringId": "11",
+                "name": "Kinh tế",
+                "icon": "ios-pulse",
+                "isShow": true
+            },
+            {
+                "id": 12,
+                "stringId": "12",
+                "name": "Thời sự",
+                "icon": "ios-bookmarks-outline",
+                "isShow": true
+            },
+            {
+                "id": 13,
+                "stringId": "13",
+                "name": "Thiết bị - Phần cứng",
+                "icon": "ios-settings-outline",
+                "isShow": true
+            },
+            {
+                "id": 14,
+                "stringId": "14",
+                "name": "Điện ảnh - Truyền hình",
+                "icon": "ios-film-outline",
+                "isShow": true
+            },
+            {
+                "id": 15,
+                "stringId": "15",
+                "name": "Tình yêu - Hôn nhân",
+                "icon": "ios-heart-outline",
+                "isShow": true
+            },
+            {
+                "id": 16,
+                "stringId": "16",
+                "name": "Thời trang",
+                "icon": "ios-shirt-outline",
+                "isShow": true
+            },
+            {
+                "id": 17,
+                "stringId": "17",
+                "name": "Chứng khoán",
+                "icon": "ios-trending-up-outline",
+                "isShow": true
+            },
+            {
+                "id": 18,
+                "stringId": "18",
+                "name": "Ẩm thực",
+                "icon": "ios-wine-outline",
+                "isShow": true
+            },
+            {
+                "id": 19,
+                "stringId": "19",
+                "name": "Văn hóa",
+                "icon": "ios-people-outline",
+                "isShow": true
+            },
+            {
+                "id": 20,
+                "stringId": "20",
+                "name": "Quản lý - Quy hoạch",
+                "icon": "ios-pricetag-outline",
+                "isShow": true
+            },
+            {
+                "id": 21,
+                "stringId": "21",
+                "name": "Khoa học - Tự nhiên",
+                "icon": "ios-flask-outline",
+                "isShow": true
+            },
+            {
+                "id": 22,
+                "stringId": "22",
+                "name": "Xe cộ",
+                "icon": "ios-car-outline",
+                "isShow": true
+            },
+            {
+                "id": 23,
+                "stringId": "23",
+                "name": "Không gian - Kiến trúc",
+                "icon": "ios-crop",
+                "isShow": true
+            },
+            {
+                "id": 24,
+                "stringId": "24",
+                "name": "Xã hội",
+                "icon": "ios-people-outline",
+                "isShow": true
+            },
+            {
+                "id": 25,
+                "stringId": "25",
+                "name": "Đời sống",
+                "icon": "ios-body-outline",
+                "isShow": true
+            },
+            {
+                "id": 26,
+                "stringId": "26",
+                "name": "Quần vợt",
+                "icon": "ios-tennisball-outline",
+                "isShow": true
+            },
+            {
+                "id": 27,
+                "stringId": "27",
+                "name": "Dinh dưỡng - Làm đẹp",
+                "icon": "ios-bowtie-outline",
+                "isShow": true
+            },
+            {
+                "id": 28,
+                "stringId": "28",
+                "name": "An ninh - Trật tự",
+                "icon": "ios-eye-outline",
+                "isShow": true
+            },
+            {
+                "id": 29,
+                "stringId": "29",
+                "name": "Nghệ thuật",
+                "icon": "ios-brush-outline",
+                "isShow": true
+            },
+            {
+                "id": 30,
+                "stringId": "30",
+                "name": "Giao thông",
+                "icon": "ios-train-outline",
+                "isShow": true
+            },
+            {
+                "id": 31,
+                "stringId": "31",
+                "name": "Âm nhạc",
+                "icon": "ios-play-outline",
+                "isShow": true
+            },
+            {
+                "id": 32,
+                "stringId": "32",
+                "name": "Thể thao",
+                "icon": "ios-tennisball-outline",
+                "isShow": true
+            },
+            {
+                "id": 33,
+                "stringId": "33",
+                "name": "Môi trường - Khí hậu",
+                "icon": "ios-rainy-outline",
+                "isShow": true
+            },
+            {
+                "id": 34,
+                "stringId": "34",
+                "name": "Tài chính",
+                "icon": "ios-stats-outline",
+                "isShow": true
+            },
+            {
+                "id": 35,
+                "stringId": "35",
+                "name": "Khoa học - Công nghệ",
+                "icon": "ios-flask-outline",
+                "isShow": true
+            },
+            {
+                "id": 36,
+                "stringId": "36",
+                "name": "Kinh doanh",
+                "icon": "logo-usd",
+                "isShow": true
+            },
+            {
+                "id": 37,
+                "stringId": "37",
+                "name": "Nhà đất",
+                "icon": "ios-flame-outline",
+                "isShow": true
+            },
+            {
+                "id": 38,
+                "stringId": "38",
+                "name": "Học bổng - Du học",
+                "icon": "ios-ribbon-outline",
+                "isShow": true
+            }
+        ]
+    }
+}

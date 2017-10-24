@@ -1,0 +1,11 @@
+page-loading {
+    #isLoadingPage{
+        background-image: url("../assets/new69/loading.png");
+        background-position: center;
+        background-size: cover;
+    }
+}
+.loading-md .loading-wrapper{
+    background: initial;
+    box-shadow: none;
+}

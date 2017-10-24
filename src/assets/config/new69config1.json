@@ -1,0 +1,232 @@
+{
+    "version": "1.0",
+    "menuTool": {
+        "id": 0,
+        "name": "new69",
+        "active": true,
+        "username": "adm",
+        "categories": [
+            {
+                "id": 0,
+                "name": "Cá nhân",
+                "items": [
+                    {
+                        "id": 0,
+                        "name": "Tìm kiếm",
+                        "icon": "search",
+                        "page": "SearchPage",
+                        "isActive": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "Tùy chọn chuyên mục",
+                        "icon": "list",
+                        "page": "ListPage",
+                        "isActive": false
+                    },
+                    {
+                        "id": 2,
+                        "name": "Tin đã đọc",
+                        "icon": "ios-checkbox-outline",
+                        "page": "PostReadPage",
+                        "isActive": false
+                    },
+                    {
+                        "id": 3,
+                        "name": "Tin đã lưu",
+                        "icon": "ios-bookmark-outline",
+                        "page": "PostSavedPage",
+                        "isLogin": false,
+                        "isActive": false
+                    },
+                    {
+                        "id": 4,
+                        "name": "Bình luận của bạn",
+                        "icon": "ios-chatboxes-outline",
+                        "page": "CommentPage",
+                        "isLogin": false,
+                        "isActive": false
+                    }
+                ]
+            },
+            {
+                "id": 1,
+                "name": "Cài đặt",
+                "items": [
+                    {
+                        "id": 0,
+                        "name": "Nhận thông báo",
+                        "icon": "ios-notifications-outline",
+                        "page": "NoficationPage",
+                        "isActive": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "Thông tin",
+                        "icon": "ios-information-circle-outline",
+                        "page": "BrightPage",
+                        "isActive": false
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "name": "Liên hệ",
+                "items": [
+                    {
+                        "id": 0,
+                        "name": "Conntact",
+                        "icon": "ios-mail-outline",
+                        "page": "ContactPage",
+                        "isActive": false
+                    }
+                ]
+            }
+        ]
+    },
+    "menuTitle": {
+        "id": 0,
+        "name": "listTitle",
+        "categorieName": [
+            {
+                "id": 0,
+                "stringId": "0",
+                "name": "Giáo dục",
+                "icon": "ios-school-outline",
+                "isShow": true,
+                "rootPage": "EducationPage",
+                "key": [
+                    "Học bổng - Du học",
+                    "Đào tạo - Thi cử",
+                    "Giáo dục"
+                ]
+            },
+            {
+                "id": 1,
+                "stringId": "1",
+                "name": "Công nghệ - Truyền thông",
+                "icon": "laptop",
+                "isShow": true,
+                "rootPage": "TechnologyPage",
+                "key": [
+                    "Thiết bị - Phần cứng",
+                    "Khoa học - Tự nhiên",
+                    "Xe cộ",
+                    "Không gian - Kiến trúc",
+                    "Khoa học - Công nghệ",
+                    "CNTT - Viễn thông"
+                ]
+            },
+            {
+                "id": 2,
+                "stringId": "2",
+                "name": "Giải trí",
+                "icon": "ios-game-controller-b-outline",
+                "isShow": true,
+                "rootPage": "GamePage",
+                "key": [
+                    "Giải trí",
+                    "Nghệ thuật",
+                    "Âm nhạc"
+                ]
+            },
+            {
+                "id": 3,
+                "stringId": "3",
+                "name": "Thể thao",
+                "icon": "ios-color-filter-outline",
+                "isShow": true,
+                "rootPage": "SportPage",
+                "key": [
+                    "Quần vợt",
+                    "Bóng đá",
+                    "Thể thao"
+                ]
+            },
+            {
+                "id": 4,
+                "stringId": "4",
+                "name": "Sức khỏe - Đời sống",
+                "icon": "ios-add-circle-outline",
+                "isShow": true,
+                "rootPage": "HealthPage",
+                "key": [
+                    "Sức khỏe - Y tế",
+                    "Du lịch",
+                    "Tình yêu - Hôn nhân",
+                    "Thời trang",
+                    "Ẩm thực",
+                    "Văn hóa",
+                    "Đời sống",
+                    "Dinh dưỡng - Làm đẹp",
+                    "Môi trường - Khí hậu"
+                ]
+            },
+            {
+                "id": 5,
+                "stringId": "5",
+                "name": "Kinh tế",
+                "icon": "ios-bonfire-outline",
+                "isShow": true,
+                "rootPage": "EconomicPage",
+                "key": [
+                    "Kinh tế",
+                    "Chứng khoán",
+                    "Quản lý - Quy hoạch",
+                    "Tài chính",
+                    "Kinh doanh"
+                ]
+            },
+            {
+                "id": 6,
+                "stringId": "6",
+                "name": "Thế giới",
+                "icon": "ios-globe-outline",
+                "isShow": true,
+                "rootPage": "WorldPage",
+                "key": [
+                    "Thời sự",
+                    "Hình sự - Dân sự",
+                    "Thế giới"
+                ]
+            },
+            {
+                "id": 7,
+                "stringId": "7",
+                "name": "Lao động - Việc làm",
+                "icon": "ios-hammer-outline",
+                "isShow": true,
+                "rootPage": "JobPage",
+                "key": [
+                    "Nhà đất",
+                    "Lao động - Việc làm"
+                ]
+            },
+            {
+                "id": 8,
+                "stringId": "8",
+                "name": "Điện ảnh - Truyền hình",
+                "icon": "ios-film-outline",
+                "isShow": true,
+                "rootPage": "CinimaxPage",
+                "key": [
+                    "Điện ảnh - Truyền hình"
+                ]
+            },
+            {
+                "id": 9,
+                "stringId": "9",
+                "name": "An ninh - Xã Hội",
+                "icon": "ios-globe-outline",
+                "isShow": true,
+                "rootPage": "SocietyPage",
+                "key": [
+                    "An ninh - Trật tự",
+                    "Xã hội",
+                    "Giao thông",
+                    "Pháp luật"
+                ]
+            }
+        ]
+    }
+}

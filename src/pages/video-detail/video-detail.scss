@@ -1,0 +1,37 @@
+
+page-video-detail {
+    .button_back{
+        color: black;
+        background-color: transparent;
+        box-shadow: none;
+    }
+    .title{
+        font-size: 2rem;
+        font-weight: bold; 
+        margin: 2%
+    }
+    .description{
+        margin: 2%;
+        font-size: 1.6rem;
+    }
+    .time{
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 0; 
+        margin-bottom: 2%;
+        .time-style{
+            font-style: italic;
+            .time-icon{
+                margin-left: 1%;
+            }
+        }
+        .commemt{
+            color: #e52d49;
+        }
+    }
+
+    .video-js{
+        width: 100%;
+        height: auto;
+    }
+}

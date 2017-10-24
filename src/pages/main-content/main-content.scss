@@ -1,0 +1,93 @@
+$post-height : 80px;
+$post-avatar-width : 100px;
+$lines-to-show: 3;
+page-main-content {
+  
+    .post1{
+        width: 100%;
+        height: 200px;
+    }
+    .title{
+        font-size: 2rem;
+        font-weight: initial; 
+        margin: 2%
+    }
+    .description{
+        margin: 2%;
+        font-size: 1.6rem;
+        font-weight: initial;
+    }
+    .time{
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 0; 
+        margin-bottom: 2%;
+        font-weight: initial;
+        .time-style{
+            font-style: italic;
+            .time-icon{
+                margin-left: 1%;
+            }
+        }
+        .commemt{
+            color: #e52d49;
+        }
+    }
+        .avatar{
+            height: 100%;
+            width: 40%;
+        }
+        .item-title{
+            width: 60%;
+            .name-title{
+                margin-top: 0;
+                margin-right: 2%;
+                margin-left: 2%;
+                margin-bottom: 0;
+                font-size: 1.5rem;
+                font-weight: initial;
+            }
+            .time-post{
+                font-style: italic;
+                .time-post-icon{
+                    margin-left: 1%;
+                }
+            }
+        }
+
+
+
+        .a-post{
+            padding: 4px;
+            position: relative;
+            height: $post-height;
+            margin-bottom: 10px;
+            color: gray;
+        }
+        .a-post-avatar{
+            width:$post-avatar-width ;
+            height: $post-height;
+            overflow: hidden;
+            img{
+               min-width: 100%;
+               min-height: 100%;
+                
+            }
+        }
+        .post-description{
+
+            padding: 0 10px;
+            height: $post-height;
+        }
+        .a-post-title{
+            display: block; /* Fallback for non-webkit */
+            display: -webkit-box;
+            -webkit-line-clamp: $lines-to-show;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-weight: initial;
+            color: black;
+        }
+    
+}

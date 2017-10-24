@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar>
+        <div class="row">
+            <ion-icon style="font-size: 2.5em;margin-left: 3%;color: white" name="ios-close-outline" (tap)="clickUpdate()"></ion-icon>
+            <ion-title style="text-align: center;font-weight: inherit">Tùy chọn chuyên mục</ion-title>
+
+        </div>
+    </ion-navbar>
+
+</ion-header>
+<ion-content>
+    <div>
+        <div *ngFor="let item of allList" (change)="updateCheckList(item, $event)">
+            <div class="checkbox-div">
+                <label class="checkbox">
+                    <input type="checkbox" value="item" [checked]="item.isShow" />
+                    <ion-icon class="icon-item" name="{{item.icon}}"></ion-icon>
+                    <span style="margin-left: 1%">{{item.name}}</span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="change-div" (tap)="clickUpdate()">
+        <!-- <div style="width: 50%; margin: auto; text-align: center; background-color: cornsilk; font-size: 1.8rem">
+            <span>Thay đổi</span>
+        </div> -->
+        <div id="button-change" class="change-button"><span>Thay đổi</span></div>
+    </div>
+</ion-content>

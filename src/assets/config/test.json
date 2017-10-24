@@ -1,0 +1,135 @@
+{
+    "version": "1.0",
+    "menuTool": {
+        "id": 0,
+        "name": "new69",
+        "active": true,
+        "username": "adm",
+        "categories": [
+            {
+                "id": 0,
+                "name": "Cá nhân",
+                "items": [
+                    {
+                        "id": 0,
+                        "name": "Tìm kiếm",
+                        "icon": "search",
+                        "page": "SearchPage",
+                        "isActive": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "Tùy chọn chuyên mục",
+                        "icon": "list",
+                        "page": "ListPage",
+                        "isActive": false
+                    },
+                    {
+                        "id": 2,
+                        "name": "Tin đã đọc",
+                        "icon": "ios-checkbox-outline",
+                        "page": "PostReadPage",
+                        "isActive": false
+                    },
+                    {
+                        "id": 3,
+                        "name": "Tin đã lưu",
+                        "icon": "ios-bookmark-outline",
+                        "page": "PostSavedPage",
+                        "isLogin": false,
+                        "isActive": false
+                    },
+                    {
+                        "id": 4,
+                        "name": "Bình luận của bạn",
+                        "icon": "ios-chatboxes-outline",
+                        "page": "CommentPage",
+                        "isLogin": false,
+                        "isActive": false
+                    }
+                ]
+            },
+            {
+                "id": 1,
+                "name": "Cài đặt",
+                "items": [
+                    {
+                        "id": 0,
+                        "name": "Nhận thông báo",
+                        "icon": "ios-notifications-outline",
+                        "page": "NoficationPage",
+                        "isActive": false
+                    },
+                    {
+                        "id": 1,
+                        "name": "Thông tin",
+                        "icon": "ios-information-circle-outline",
+                        "page": "BrightPage",
+                        "isActive": false
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "name": "Liên hệ",
+                "items": [
+                    {
+                        "id": 0,
+                        "name": "Conntact",
+                        "icon": "ios-mail-outline",
+                        "page": "ContactPage",
+                        "isActive": false
+                    }
+                ]
+            }
+        ]
+    },
+    "menuTitle": {
+        "id": 0,
+        "name": "listTitle",
+        "categorieName": [
+            {
+                "id": 0,
+                "stringId": "0",
+                "name": "Kinh tế",
+                "icon": "ios-school-outline",
+                "isShow": true
+            },
+            {
+                "id": 1,
+                "stringId": "1",
+                "name": "Giải trí",
+                "icon": "ios-book-outline",
+                "isShow": true
+            },
+            {
+                "id": 2,
+                "stringId": "2",
+                "name": "Thể thao",
+                "icon": "laptop",
+                "isShow": true
+            },
+            {
+                "id": 3,
+                "stringId": "3",
+                "name": "Xã hội",
+                "icon": "ios-game-controller-b-outline",
+                "isShow": true
+            },
+            {
+                "id": 4,
+                "stringId": "4",
+                "name": "Công nghệ",
+                "icon": "ios-color-filter-outline",
+                "isShow": true
+            },
+            {
+                "id": 5,
+                "stringId": "5",
+                "name": "Thế giới",
+                "icon": "ios-add-circle-outline",
+                "isShow": true
+            }
+        ]
+    }
+}

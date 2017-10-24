@@ -1,3 +1,36 @@
-page-home {
 
+
+page-home {
+    .navbar{
+        padding: 0;
+        width: 100%;
+        background-color:map-get($new69Colors, red );  
+    }
+
+    .header{
+        color: white;
+        background-color: map-get($new69Colors, red );  
+        .menu-button-left{
+            padding: 16px;
+            font-size: 1.6em;
+        }
+        .menu-button-right{
+            padding: 16px;
+            font-size: 1.6em;
+        }
+        .menu-title{
+            font-size: 2em;
+            font-weight: bold;
+        }
+    }
+
+    .supertabs{
+        font-weight: bold;
+    }
+    .text-md-main{
+        font-weight: bold;
+    }
+    .text-ios-main{
+        font-weight: bold;
+    }
 }

@@ -1,0 +1,21 @@
+<ion-content>
+    <ion-navbar>
+        <div class="a3-container a3-items-center a3-justify-between header">
+            <div class="header-post">{{headerPost}}</div>
+            <div class="button-on-right">
+                <button class="button"><ion-icon name="ios-chatboxes-outline" color="light" ></ion-icon></button>
+                <button class="button"><ion-icon name="ios-bookmark-outline" color="light" ></ion-icon></button>
+                <button class="button"><ion-icon name="share" color="light" (click)="goShare()">
+                        <ion-fab-list side="top">
+                                <button ion-fab>Facebook</button>
+                <button ion-fab>Twitter</button>
+                <button ion-fab>Youtube</button>
+                </ion-fab-list>
+                </ion-icon>
+                </button>
+            </div>
+
+        </div>
+    </ion-navbar>
+    <iframe *ngIf="urlPost" [src]="urlPost" class="news"></iframe>
+</ion-content>

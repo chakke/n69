@@ -1,0 +1,46 @@
+page-login {
+    .login{
+        height: 100%;
+        width: 100%;
+        padding-left: 5vh;
+        padding-right: 5vh;
+        padding-top: 30vh;
+        padding-bottom: 40vh;
+
+        .google-login{
+            width: 50%;
+            height: 100%;
+            padding-left: 5vh;
+            padding-right: 5vh;
+            padding-top: 10vh;
+            padding-bottom: 7vh;
+            .google-icon{
+                height: 100%;
+                width: 100%;
+            }            
+        }
+        .facebook-login{
+            width: 50%;
+            height: 100%;
+            padding-left: 5vh;
+            padding-right: 5vh;
+            padding-top: 10vh;
+            padding-bottom: 7vh;
+            .facebook-icon{
+                height: 100%;
+                width: 100%;
+            }   
+        }
+
+    }
+    #googleIcon{
+        background-image: url("../assets/new69/gg.png");
+        background-position: center;
+        background-size: cover;
+    }
+    #facebookIcon{
+        background-image: url("../assets/new69/fb.png");
+        background-position: center;
+        background-size: cover;
+    }
+}

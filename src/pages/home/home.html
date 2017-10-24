@@ -1,14 +1,31 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+  <ion-navbar no-padding>
+    <div class="a3-container a3-items-center a3-justify-between header" >
+        <div class="menu-button-left">
+            <ion-icon menuToggle name="menu"></ion-icon>
+        </div>
+        <div class="menu-title" (click)="goHomePage()">News 69</div>
+        <div class="menu-button-right" (tap)="goShare()">
+            <ion-icon name="ios-list-box-outline"></ion-icon>
+        </div>
+
+
+    </div>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+  <!-- <ion-tabs selectedIndex="0" (ionChange)="indexPage($event)">
+    <ion-tab id="home" [root]="pageMain" tabIcon="ios-home-outline"></ion-tab>
+    <ion-tab id="video" [root]="pageMain" tabIcon="ios-videocam-outline"></ion-tab>
+    <ion-tab *ngFor="let list of mCategories" id="{{list.name}}" [root]="pageMain" tabTitle="{{list.name}}"></ion-tab>
+  </ion-tabs> -->
+
+  <super-tabs class="supertabs" *ngIf="mDidLoadTitle" scrollTabs="false" toolbarColor="main" toolbarBackground="light" (tabSelect)="indexPage($event)">
+    <super-tab id="home" [root]="pageMain" icon="ios-home-outline"></super-tab>
+    <super-tab id="video" [root]="pageVideo" icon="ios-videocam-outline"></super-tab>
+    <super-tab *ngFor="let list of mCategories" id="{{list.name}}" [root]="pageMain" title="{{list.name}}"></super-tab>
+  </super-tabs>
+
+
 </ion-content>
