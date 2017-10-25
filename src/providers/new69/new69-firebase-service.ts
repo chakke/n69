@@ -1,16 +1,20 @@
 import { Injectable } from "@angular/core";
 
-import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database";
+
+// import { AngularFireDatabase } from "angularfire2/database";
+import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database-deprecated";
+
 
 @Injectable()
 export class New69FirebaseService {
+
+    // post: any;
+    // video: any;
     post: FirebaseListObservable<any>;
     video: FirebaseListObservable<any>;
     constructor(
         public mFirebase: AngularFireDatabase,
-    ) {
-        this.getPostFirebase();
-    }
+    ) { }
 
 
 
@@ -37,7 +41,7 @@ export class New69FirebaseService {
     }
 
     pushClipData(url: string, title: string, contentId: string, description: string, totalComments: string) {
-        this.video = this.mFirebase.list('/video');  
+        this.video = this.mFirebase.list('/video');
         this.video.push({
             contentId: parseInt(contentId),
             url: url,

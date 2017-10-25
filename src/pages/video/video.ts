@@ -52,20 +52,17 @@ export class VideoPage {
   }
 
   getVideoFirebase() {
-    this.storage.get('clipFirebase').then(data => {
-      if (data == null || data == undefined) {
-        this.mFirebase.getData();
-        this.mFirebase.video.subscribe(data => {
-          data.forEach(item => {
-            let video = new VideoClip();
-            video.onResponseVideo(item);
-            this.videoClip.push(video);
-          });
-          this.storage.set("videoFirebase", this.videoClip).then(() => {
-            console.log("Stored video");
-          });
-        })
-      }
+    this.mFirebase.getData();
+    this.mFirebase.video.subscribe(data => {
+      data.forEach(item => {
+        let video = new VideoClip();
+        video.onResponseVideo(item);
+        this.videoClip.push(video);
+      });
+      this.loadVideo(this.videoClip);
+      this.storage.set("videoFirebase", this.videoClip).then(() => {
+        console.log("Stored video");
+      });
     })
   }
 
@@ -75,8 +72,6 @@ export class VideoPage {
         this.getVideoFirebase();
         return
       }
-      // console.log(data);
-
       this.loadVideo(data);
     }, error => {
       console.log(error);

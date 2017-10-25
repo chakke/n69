@@ -22,18 +22,18 @@ export class MainContentPage {
     navController: NavController;
 
 
-    avatarUrl:      string;
-    categoryName:   string;
-    contentId:      number;
-    date:           string;
-    description:    string;
-    title:          string;
-    totalComments:  number;
+    avatarUrl: string;
+    categoryName: string;
+    contentId: number;
+    date: string;
+    description: string;
+    title: string;
+    totalComments: number;
 
     titlePage: string;
     firstPost: any;
     otherPost: any;
-    allPost  : any;
+    allPost: any;
 
     // private start: number = 0;
 
@@ -49,6 +49,10 @@ export class MainContentPage {
         this.navController = app.getRootNav();
     }
 
+    ionViewDidLoad() {
+        // this.loadHomePage();
+    }
+
     ionViewDidEnter() {
         setTimeout(() => {
             // this.loadAllData(this.mNew69Module.titlePage);
@@ -56,51 +60,50 @@ export class MainContentPage {
         }, 100);
     }
 
-    requestPost() {
-        let loading = this.loadingCtrl.create({
-            dismissOnPageChange: true
-        })
-        loading.present();
-        this.posts = [];
-        this.mNew69Module.getHttpService().requestPostDetail().then(data => {
-            console.log(data);
-            this.onResponsePost(data);
-            loading.dismiss()
-        });
-    }
+    // requestPost() {
+    //     let loading = this.loadingCtrl.create({
+    //         dismissOnPageChange: true
+    //     })
+    //     loading.present();
+    //     this.posts = [];
+    //     this.mNew69Module.getHttpService().requestPostDetail().then(data => {
+    //         console.log(data);
+    //         this.onResponsePost(data);
+    //         loading.dismiss()
+    //     });
+    // }
 
     /**Hàm lấy dữ liệu */
-    onResponsePost(data) {
-        data.data.forEach(element => {
-            let post = new Post();
-            post.onResponsePost(element);
-            this.posts.push(post);
-        });
-        this.mNew69Module.mNew69Post.posts = this.posts;
-        this.storage.set("post", this.posts).then(() => console.log("Stored post!"),
-            error => console.log("error Storing post!", error));
-    }
+    // onResponsePost(data) {
+    //     data.data.forEach(element => {
+    //         let post = new Post();
+    //         post.onResponsePost(element);
+    //         this.posts.push(post);
+    //     });
+    //     this.mNew69Module.mNew69Post.posts = this.posts;
+    //     this.storage.set("post", this.posts).then(() => console.log("Stored post!"),
+    //         error => console.log("error Storing post!", error));
+    // }
 
     /**Hàm xử lý dữ liệu */
-    loadAllData(titlePage: string) {
-        this.storage.get('post').then(data => {
-            if (data == null || data == undefined) {
-                this.requestPost();
-                return
-            };
-            data.forEach(element => {
-                let post = new Post();
-                post.onResponsePost(element);
-                this.posts.push(post);
-            });
-            this.loadDataPage(titlePage, data);
-            this.mNew69Module.didLoadPost = true;
-        }, error => {
-            console.log(error);
-            this.requestPost();
-        });
-
-    }
+    // loadAllData(titlePage: string) {
+    //     this.storage.get('post').then(data => {
+    //         if (data == null || data == undefined) {
+    //             this.requestPost();
+    //             return
+    //         };
+    //         data.forEach(element => {
+    //             let post = new Post();
+    //             post.onResponsePost(element);
+    //             this.posts.push(post);
+    //         });
+    //         this.loadDataPage(titlePage, data);
+    //         this.mNew69Module.didLoadPost = true;
+    //     }, error => {
+    //         console.log(error);
+    //         this.requestPost();
+    //     });
+    // }
 
     /**Hàm lấy dữ liệu ra cho từng tiêu đề */
     loadDataPage(index: string, listPost: any[]) {
@@ -122,22 +125,23 @@ export class MainContentPage {
 
     /**Hàm lấy dữ liệu từ firebase */
     getPostFirebase() {
-        this.storage.get('dataFirebase').then((data) => {            
-            if (data == null || data == undefined) {
-                this.mFirebase.getPostFirebase();
-                this.mFirebase.post.subscribe((data) => {
-                    data.forEach(item => {
-                        let post = new Post();
-                        post.onResponsePost(item);
-                        this.postsFirebase.push(post);
-                    })
-                    this.storage.set("dataFirebase", this.postsFirebase).then(() => {
-                        console.log("Stored data");
-                    });
-                });
-            }
+        let loading = this.loadingCtrl.create({
+            spinner: "crescent"
         });
-
+        loading.present();
+        this.mFirebase.getPostFirebase();
+        this.mFirebase.post.subscribe((data) => {
+            data.forEach(item => {
+                let post = new Post();
+                post.onResponsePost(item);
+                this.postsFirebase.push(post);
+            })
+            this.loadPost(this.postsFirebase);
+            loading.dismiss();
+            this.storage.set("dataFirebase", this.postsFirebase).then(() => {
+                console.log("Stored data");
+            });
+        });
     }
 
     /**Hàm xử lý dữ liệu Firebase*/
@@ -159,10 +163,10 @@ export class MainContentPage {
         this.firstPost = list[0];
         this.loadFirstPost(this.firstPost);
         this.otherPost = [];
-        this.allPost   = [];
-        for (let i = 0; i < list.length; i++){
+        this.allPost = [];
+        for (let i = 0; i < list.length; i++) {
             this.allPost.push(list[i]);
-        }        
+        }
         for (let i = 0; i < 5; i++) {
             if (i > 0) {
                 this.otherPost.push(list[i]);
@@ -170,13 +174,13 @@ export class MainContentPage {
         }
     }
     loadFirstPost(object: any) {
-        this.avatarUrl      = object.avatarUrl;
-        this.categoryName   = object.categoryName;
-        this.contentId      = object.contentId;
-        this.date           = object.date;
-        this.description    = object.description;
-        this.title          = object.title;
-        this.totalComments  = object.totalComments;
+        this.avatarUrl = object.avatarUrl;
+        this.categoryName = object.categoryName;
+        this.contentId = object.contentId;
+        this.date = object.date;
+        this.description = object.description;
+        this.title = object.title;
+        this.totalComments = object.totalComments;
     }
 
     /**Hàm refresh dữ liệu */
@@ -195,13 +199,13 @@ export class MainContentPage {
             let startNumberIndex: number = this.otherPost.length;
             // console.log(startNumberIndex);
             // console.log(this.allPost.length - 4);
-            if(startNumberIndex < this.allPost.length - 4){
+            if (startNumberIndex < this.allPost.length - 4) {
                 for (let i = startNumberIndex; i < startNumberIndex + 4; i++) {
-                    if(i > startNumberIndex){
+                    if (i > startNumberIndex) {
                         this.otherPost.push(this.allPost[i]);
                     }
                 }
-            }            
+            }
             infiniteScroll.complete();
         }, 1000);
         // console.log(this.otherPost);

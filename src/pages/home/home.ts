@@ -40,11 +40,11 @@ export class HomePage {
     ionViewDidLoad() {
         this.mNew69Module.titlePage = "home";
         this.getTitlePage();
-        let loading = this.loadingCtrl.create({
-            spinner: "crescent",
-            duration: 500
-        })
-        loading.present();
+        // let loading = this.loadingCtrl.create({
+        //     spinner: "crescent",
+        //     duration: 500
+        // })
+        // loading.present();
 
 
 

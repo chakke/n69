@@ -13,7 +13,9 @@ import { MyApp }                from './app.component';
 import { SuperTabsModule }      from 'ionic2-super-tabs'; 
 
 import { AngularFireModule }    from 'angularfire2';
-import { AngularFireDatabase }  from 'angularfire2/database';
+// import { AngularFireDatabaseModule }  from 'angularfire2/database';
+import { AngularFireDatabaseModule }  from 'angularfire2/database-deprecated';
+
 import { New69FirebaseService } from "../providers/new69/new69-firebase-service";
 
 export const firebaseConfig = {
@@ -37,7 +39,8 @@ export const firebaseConfig = {
     }),
     SuperTabsModule.forRoot(),
     IonicStorageModule.forRoot(),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -49,7 +52,6 @@ export const firebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     New69Module,
     HttpService,
-    AngularFireDatabase,
     New69FirebaseService
   ]
 })
