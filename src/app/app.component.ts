@@ -34,6 +34,7 @@ export class AppMenu {
 })
 export class MyApp {
   rootPage: any = "LoadingPage";
+
   mNew69Menu: any = [];
 
   constructor(

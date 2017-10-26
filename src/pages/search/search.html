@@ -1,45 +1,36 @@
-<ion-content>
+<ion-header>
     <ion-navbar>
         <div class="row">
             <button ion-button class="btn-back" (tap)="back()">
                 <ion-icon name="arrow-back"></ion-icon>
             </button>
-            <ion-searchbar class="search-box" [(ngModel)]="searchKey" [showCancelButton]="shouldShowCancel" (ionInput)="searchPost()"
-                (ionCancel)="onCancel($event)">
+            <ion-searchbar class="search-box" [(ngModel)]="searchKey" [showCancelButton]="shouldShowCancel" (search)="searchPost()" (ionCancel)="onCancel($event)">
             </ion-searchbar>
         </div>
     </ion-navbar>
-    <!-- <div class="result-post">
-        <ion-list *ngFor="let list of resultPost">
-            <div class="row" (click)="goContentPage(list)">
-                <img class="image-post" src="{{list.avatarUrl}}">
-                <div style="width: 60%">
-                    <p class="title-post">
-                        <span>{{list.title}}</span>
-                    </p>
-                </div>
-            </div>
-        </ion-list>
-    </div> -->
+</ion-header>
+<ion-content>
 
-    <!-- lấy dữ liệu test -->
-    <div class="result-post">
-        <div *ngFor="let list of posts" style="padding: 5px">
-            <div style="background-color: wheat" (tap)="clickPushPost(list)">
-                <div>{{list.title}}</div>
-                <div style="color: red; font-size: 1.5em">{{list.categoryName}}</div>
+    <!-- refresh data -->
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content refreshingText="Refreshing..."></ion-refresher-content>
+    </ion-refresher>
+    <!-- list search -->
+    <div *ngFor="let post of postShow" class="a3-container a3-items-center a-post" (tap)="goContentPage(post)">
+        <div class="a-post-avatar">
+            <img src="{{post.avatarUrl}}">
+        </div>
+        <div class="a3-container a3-column a3-justify-between  a3-flex-1 post-description a1-height-100">
+            <div class="a-post-title">{{post.title}}</div>
+            <div>
+                <span class="time-post">
+                    <ion-icon class="time-post-icon" name="ios-time-outline"></ion-icon> {{post.date}} </span>
             </div>
-
         </div>
     </div>
+    <!-- scroll to load more data -->
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 
-    <!-- lấy dữ liệu dạng clip -->
-    <!-- <div>
-        <input [(ngModel)]="url" type="text" placeholder="url">
-        <input [(ngModel)]="title" type="text" placeholder="title">
-        <input [(ngModel)]="contentId" type="text" placeholder="contentId">
-        <input [(ngModel)]="description" type="text" placeholder="description">
-        <input [(ngModel)]="totalComments" type="text" placeholder="totalComments">
-    </div>
-    <button ion-button type="submit" (tap)="getVal()">push</button> -->
 </ion-content>

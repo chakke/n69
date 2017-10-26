@@ -40,7 +40,7 @@ export const firebaseConfig = {
     SuperTabsModule.forRoot(),
     IonicStorageModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -52,7 +52,7 @@ export const firebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     New69Module,
     HttpService,
-    New69FirebaseService
+    New69FirebaseService,
   ]
 })
 export class AppModule {}

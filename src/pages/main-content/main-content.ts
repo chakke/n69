@@ -197,8 +197,6 @@ export class MainContentPage {
     doInfinite(infiniteScroll: any) {
         setTimeout(() => {
             let startNumberIndex: number = this.otherPost.length;
-            // console.log(startNumberIndex);
-            // console.log(this.allPost.length - 4);
             if (startNumberIndex < this.allPost.length - 4) {
                 for (let i = startNumberIndex; i < startNumberIndex + 4; i++) {
                     if (i > startNumberIndex) {

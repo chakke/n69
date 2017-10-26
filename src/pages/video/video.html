@@ -6,7 +6,8 @@
     <!-- first video -->
     <div *ngIf="firstClip">
         <div>
-            <video *ngIf="url" id="videoFile" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto">
+            <video *ngIf="url" id="videoFile" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto"
+                poster="{{avatarUrl}}" data-setup='{"example_option":true}'>
                 <source src="{{url}}" type="video/mp4">
             </video>
         </div>

@@ -1,12 +1,14 @@
 <ion-content>
-    <!-- <div> -->
-    <div class="video-js">
-        <button ion-button icon-only class="button_back" (tap)="backToVideoPage()">
-            <ion-icon name="arrow-back"></ion-icon>
-        </button>
-        <video id="video" class="video-js" controls preload="auto" autoplay>
+    <div class="video-content">
+        <video id="video" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" poster="{{poster}}" data-setup='{}'>
             <source src="{{videoDetail.url}}" type="video/mp4">
         </video>
+        <button class="exit_button" (tap)="backToVideoPage()">
+            <ion-icon name="arrow-back"></ion-icon>
+        </button>
+        <!-- <button class="big_play_btn">
+            <ion-icon name="play"></ion-icon>
+        </button> -->
     </div>
     <p id="title" class="title">{{videoDetail.title}}</p>
     <p id="description" class="description">{{videoDetail.description}}</p>
@@ -16,5 +18,4 @@
         <span class="comment">
             <ion-icon class="time-icon" name="ios-chatboxes-outline"></ion-icon> {{videoDetail.totalComments}}</span>
     </p>
-    <!-- </div> -->
 </ion-content>

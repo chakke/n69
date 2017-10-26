@@ -7,6 +7,8 @@ import { New69FirebaseService } from "../../providers/new69/new69-firebase-servi
 
 import { Post } from "../../providers/new69/new69-post";
 
+import { Storage } from "@ionic/storage";
+
 
 @IonicPage()
 @Component({
@@ -15,45 +17,21 @@ import { Post } from "../../providers/new69/new69-post";
 })
 export class SearchPage {
 
-  posts: Array<Post> = [];
   resultPost: any[];
+  dataPost: any[];
+  postShow: any[];
   searchKey: string = '';
 
-  time: string;
-
-  listAdd: any;
-
-  url: string;
-  title: string;
-  contentId: string;
-  description: string;
-  totalComments: string
 
   constructor(
     public navCtrl: NavController,
     public mNew69: New69Module,
-    public mFirebase: New69FirebaseService
+    public mFirebase: New69FirebaseService,
+    public storage: Storage
   ) { }
 
   ionViewDidLoad() {
-    this.mNew69.getHttpService().requestPostDetail().then((data) => {
-      this.onResponsePost(data);
-    })
-  }
 
-  onResponsePost(data) {
-    data.data.forEach(element => {
-      let post = new Post();
-      post.onResponsePost(element);
-      this.posts.push(post);
-    });
-
-  }
-
-  clickPushPost(post: any) {
-    // this.mFirebase.pushData(post);
-    console.log(post);
-    
   }
 
   back() {
@@ -63,17 +41,67 @@ export class SearchPage {
 
   }
   searchPost() {
-    // this.resultPost = this.mNew69.filterPostByKeyWord(this.searchKey);
+    this.dataPost = [];
+    this.storage.get('dataFirebase').then(data => {
+      data.forEach(item => {
+        this.dataPost.push(item);
+      });
+      this.fillterPost(this.dataPost);
+      this.doShowPost(this.resultPost);
+    });
   }
 
-  getVal() {
-    // console.log(this.url);
-    // console.log(this.title);
-    // console.log(this.description);
-    // console.log(this.contentId);
-    // console.log(this.totalComments);
-    // this.mFirebase.pushClipData(this.url, this.title, this.contentId, this.description, this.totalComments);
-    
+  /**Lọc post qua keySearch */
+  fillterPost(list: any) {
+    this.resultPost = list.filter(item => {
+      return item.title.toLowerCase().indexOf(this.searchKey.toLowerCase()) > -1;
+    })
   }
 
+  /**Add 10 item đầu vào list */
+  doShowPost(list: any) {
+    this.postShow = [];
+    for (let i = 0; i < 10; i++) {
+      this.postShow.push(list[i]);
+    }
+  }
+
+  /**Hàm refresh dữ liệu */
+  doRefresh(refresher) {
+    console.log('start refresh', refresher);
+    setTimeout(() => {
+      this.searchPost();
+      console.log('refresh has complete!');
+      refresher.complete();
+    }, 500);
+  }
+
+  /**Hàm thêm dữ liệu khi scroll */
+  doInfinite(infiniteScroll: any) {
+    setTimeout(() => {
+      let startNumberIndex: number = this.postShow.length;
+      if (startNumberIndex < this.resultPost.length - 4) {
+        console.log('a');
+
+        for (let i = startNumberIndex; i < startNumberIndex + 4; i++) {
+          if (i > startNumberIndex) {
+            this.postShow.push(this.resultPost[i]);
+          }
+        }
+      }
+      if (startNumberIndex <= this.resultPost.length - 1) {
+        this.postShow.push(this.resultPost[10]);
+      }
+      if (startNumberIndex <= this.resultPost.length - 2) {
+        this.postShow.push(this.resultPost[10]);
+        this.postShow.push(this.resultPost[11]);
+      }
+      if (startNumberIndex <= this.resultPost.length - 3) {
+        this.postShow.push(this.resultPost[10]);
+        this.postShow.push(this.resultPost[11]);
+        this.postShow.push(this.resultPost[12]);
+      }
+      infiniteScroll.complete();
+    }, 1000);
+  }
 }

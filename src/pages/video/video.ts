@@ -8,6 +8,7 @@ import { VideoClip } from "../../providers/new69/new69-post";
 import { Storage } from "@ionic/storage";
 
 
+
 @IonicPage()
 @Component({
   selector: 'page-video',
