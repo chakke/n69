@@ -48,7 +48,7 @@ export class MyApp {
     public loadingCtrl: LoadingController,
   ) {
     platform.ready().then(() => {
-      statusBar.styleDefault();
+      statusBar.styleLightContent();
       splashScreen.hide();
       this.mNew69Menu = this.mNew69Module.mNew69Menu;
       this.menuCtrl.enable(true, "loginNew69");

@@ -1,29 +1,29 @@
 <ion-header>
-    <ion-navbar>
-        <div class="row">
-            <ion-icon style="font-size: 2.5em;margin-left: 3%;color: white" name="ios-close-outline" (tap)="clickUpdate()"></ion-icon>
-            <ion-title style="text-align: center;font-weight: inherit">Tùy chọn chuyên mục</ion-title>
 
-        </div>
-    </ion-navbar>
+  <div class="header">
+    <div class="statusbar-height"></div>
+    <div class="a3-container a3-items-center">
+      <div class="header-btn" (tap)="clickUpdate()"><ion-icon name="ios-close-outline"></ion-icon></div>
+      <div class="header-title a3-flex-1">Tùy chọn chuyên mục</div>
+    </div>
+  </div>
 
 </ion-header>
 <ion-content>
-    <div>
-        <div *ngFor="let item of allList" (change)="updateCheckList(item, $event)">
-            <div class="checkbox-div">
-                <label class="checkbox">
-                    <input type="checkbox" value="item" [checked]="item.isShow" />
-                    <ion-icon class="icon-item" name="{{item.icon}}"></ion-icon>
-                    <span style="margin-left: 1%">{{item.name}}</span>
-                </label>
-            </div>
-        </div>
+  <div>
+    <div *ngFor="let item of allList" (change)="updateCheckList(item, $event)">
+      <div class="checkbox-div">
+        <label class="checkbox">
+          <input type="checkbox" value="item" [checked]="item.isShow" />
+          <ion-icon class="icon-item" name="{{item.icon}}"></ion-icon>
+          <span style="margin-left: 1%">{{item.name}}</span>
+        </label>
+      </div>
     </div>
-    <div class="change-div" (tap)="clickUpdate()">
-        <!-- <div style="width: 50%; margin: auto; text-align: center; background-color: cornsilk; font-size: 1.8rem">
-            <span>Thay đổi</span>
-        </div> -->
-        <div id="button-change" class="change-button"><span>Thay đổi</span></div>
+  </div>
+  <div class="change-div" (tap)="clickUpdate()">
+    <div id="button-change" class="change-button">
+     Thay đổi
     </div>
+  </div>
 </ion-content>

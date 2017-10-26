@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from "@angular/platform-browser";
-import { IonicPage, NavParams, LoadingController } from 'ionic-angular';
-import { Storage } from "@ionic/storage";
+import { IonicPage, NavParams, LoadingController, NavController } from 'ionic-angular';
+
 
 import { New69Module } from "../../providers/new69/new69";
 
@@ -10,10 +10,10 @@ import { New69Module } from "../../providers/new69/new69";
     selector: 'page-content',
     templateUrl: 'page-content.html',
 })
-export class PageContent{
+export class PageContent {
 
     isShow: boolean = false;
-    
+
     urlPost: SafeResourceUrl;
 
     constructor(
@@ -21,8 +21,11 @@ export class PageContent{
         public navParams: NavParams,
         public domSanitier: DomSanitizer,
         public loadingCtrl: LoadingController,
-        public storage: Storage,
-    ) { }
+        public mNavController: NavController
+
+    ) {
+
+    }
 
     ionViewDidEnter() {
         let post = this.navParams.get('postId')
@@ -38,6 +41,10 @@ export class PageContent{
             document.getElementById('share').style.display = 'block';
             this.isShow = true;
         }
+    }
+
+    onClickBack() {
+        this.mNavController.pop();
     }
 
 }

@@ -1,40 +1,36 @@
-page-content{
-    .toolbar-background-md{
-        background: map-get($new69Colors, red );
+page-content {
+  .header {
+    color: white;
+    background: map-get($new69Colors, red);
+    .header-post {
+      font-size: 1.6em;
+      font-weight: initial;
+      color: white;
+      -webkit-line-clamp: $lines-to-show;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
-    .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default{
-        color: white;
+    .button-on-right {
+      padding: 5px;
+      font-size: 1em;
+      .button {
+        box-shadow: none;
+        background-color: transparent;
+        font-size: 1.5em;
+      }
     }
-    .header{        
-        .header-post{
-            font-size: 1.5em;
-            font-weight: initial;
-            color: white;
-            display: -webkit-box;
-            -webkit-line-clamp: $lines-to-show;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .button-on-right{
-            padding: 5px;
-            font-size: 1em;
-            .button{
-                box-shadow: none;
-                background-color: transparent;
-                font-size: 1.5em;
-            }
-        }
-
-    }
-    
-    .scroll-content{
-        overflow-y: hidden;
-    }
-    .news{
-        height: 100%;
-        width: 100%;
-        max-width: 100%;
-    }
+  }
+  .header-btn {
+    font-size: 1.4em;
+    padding: 10px 16px;
+  }
+  .news {
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    border: none;
+    -webkit-overflow-scrolling: touch;
+    overflow: auto;
+  }
 }
-
