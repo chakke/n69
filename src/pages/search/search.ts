@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 
 import { New69Module } from "../../providers/new69/new69";
 
 import { New69FirebaseService } from "../../providers/new69/new69-firebase-service";
 
-import { Post } from "../../providers/new69/new69-post";
+// import { Post } from "../../providers/new69/new69-post";
 
 import { Storage } from "@ionic/storage";
 
@@ -22,13 +22,17 @@ export class SearchPage {
   postShow: any[];
   searchKey: string = '';
 
+  navController: NavController;
 
   constructor(
     public navCtrl: NavController,
     public mNew69: New69Module,
     public mFirebase: New69FirebaseService,
-    public storage: Storage
-  ) { }
+    public storage: Storage,
+    public app: App
+  ) {
+    this.navController = app.getRootNav();
+  }
 
   ionViewDidLoad() {
 
@@ -37,9 +41,15 @@ export class SearchPage {
   back() {
     this.navCtrl.setRoot("HomePage");
   }
+
   onCancel(event) {
 
   }
+
+  goContentPage(post_content: any) {
+    this.navController.push("PageContent", { postId: post_content });
+  }
+
   searchPost() {
     this.dataPost = [];
     this.storage.get('dataFirebase').then(data => {

@@ -1,16 +1,29 @@
 <ion-header>
-
-  <ion-navbar>
-    <div class="row" >
-      <ion-icon style="font-size: 2.5em;margin-left: 3%;color: white" name="ios-close-outline" (tap)="exit()"></ion-icon>
-      <ion-title style="text-align: center;font-weight: inherit"> Tin đã đọc</ion-title>
-
+  <div class="header">
+    <div class="statusbar-height"></div>
+    <div class="a3-container a3-items-center a3-justify-between">
+      <div class="div_exit">
+        <button class="button_exit" (tap)="exit()">
+          <ion-icon name="ios-close-outline"></ion-icon>
+        </button>
+      </div>
+      <div class="div_title">
+        Tin đã đọc
+      </div>
     </div>
-  </ion-navbar>
-
+  </div>
 </ion-header>
-
-
-<ion-content padding>
-
+<ion-content>
+  <div *ngFor="let post of postRead" class="a3-container a3-items-center a-post" (tap)="goContentPage(post)">
+    <div class="a-post-avatar">
+      <img src="{{post.avatarUrl}}">
+    </div>
+    <div class="a3-container a3-column a3-justify-between  a3-flex-1 post-description a1-height-100">
+      <div class="a-post-title">{{post.title}}</div>
+      <div>
+        <span class="time-post">
+          <ion-icon class="time-post-icon" name="ios-time-outline"></ion-icon> {{post.date}} </span>
+      </div>
+    </div>
+  </div>
 </ion-content>

@@ -1,7 +1,21 @@
-.toolbar-title-md{
-    font-weight: inherit;
-    color: white;
-}
-.toolbar-background-md{
-    background: map-get($new69Colors, red );
+post-saved-page{
+    .header{
+        color: white;
+        background-color: map-get($new69Colors, red );
+        font-size: 1.2em;
+        line-height: 1.2em;
+        .div_exit{
+            width: 10%;
+            .button_exit{
+                background-color: transparent;
+                color: white;
+                font-size: 1.5em;
+            }
+        }        
+        .div_title{
+            margin: auto;
+            font-size: 1.7rem;
+            margin-left: 30%;
+        }
+    }
 }

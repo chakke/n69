@@ -1,11 +1,18 @@
 page-search {
-    .btn-back{
-        background-color: transparent; 
-        color: black;
-        box-shadow: none;
-    }
-    .search-box{
-        width: 80%;
+    
+    .search_header{
+        color: white;
+        background-color: map-get($new69Colors, red );
+        height: 10vh;
+        .btn-back{
+            background-color: transparent; 
+            color: black;
+            box-shadow: none;
+        }  
+        .search-box{
+            width: 100%;
+            margin-right: 5%;
+        }
     }
 
     .a-post{

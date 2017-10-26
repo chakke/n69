@@ -1,11 +1,21 @@
 page-login {
-    .login{
+    .div_exit{
+        background-color: wheat;
+        .button_exit{
+            background-color: transparent;
+            color: black;
+            font-size: 2em;
+        }
+    }
+
+    .div_login{
         height: 100%;
         width: 100%;
         padding-left: 5vh;
         padding-right: 5vh;
         padding-top: 30vh;
         padding-bottom: 40vh;
+        background-color: wheat;
 
         .google-login{
             width: 50%;

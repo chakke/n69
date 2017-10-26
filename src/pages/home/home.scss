@@ -1,25 +1,20 @@
 
 
 page-home {
-    .navbar{
-        padding: 0;
-        width: 100%;
-        background-color:map-get($new69Colors, red );  
-    }
-
     .header{
         color: white;
         background-color: map-get($new69Colors, red );  
+        height: 3.5em;
         .menu-button-left{
-            padding: 16px;
-            font-size: 1.6em;
+            padding: 10px 16px;
+            font-size: 1.4em;
         }
         .menu-button-right{
-            padding: 16px;
-            font-size: 1.6em;
+            padding: 10px 16px;
+            font-size: 1.4em;
         }
         .menu-title{
-            font-size: 2em;
+            font-size: 1.6em;
             font-weight: bold;
         }
     }

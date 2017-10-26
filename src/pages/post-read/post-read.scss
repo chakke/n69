@@ -1,9 +1,53 @@
 page-post-read {
-    .toolbar-title-md{
-        font-weight: inherit;
+    .header{
         color: white;
+        background-color: map-get($new69Colors, red );
+        font-size: 1.2em;
+        line-height: 1.2em;
+        .div_exit{
+            width: 10%;
+            .button_exit{
+                background-color: transparent;
+                color: white;
+                font-size: 1.5em;
+            }
+        }        
+        .div_title{
+            margin: auto;
+            font-size: 1.7rem;
+            margin-left: 30%;
+        }
     }
-    .toolbar-background-md{
-        background: map-get($new69Colors, red );
+    .a-post{
+        padding: 4px;
+        position: relative;
+        height: $post-height;
+        margin-bottom: 10px;
+        color: gray;
+    }
+    .a-post-avatar{
+        width:$post-avatar-width ;
+        height: $post-height;
+        overflow: hidden;
+        img{
+           min-width: 100%;
+           min-height: 100%;
+            
+        }
+    }
+    .post-description{
+
+        padding: 0 10px;
+        height: $post-height;
+    }
+    .a-post-title{
+        display: block; /* Fallback for non-webkit */
+        display: -webkit-box;
+        -webkit-line-clamp: $lines-to-show;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-weight: initial;
+        color: black;
     }
 }

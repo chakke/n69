@@ -129,7 +129,6 @@ export class VideoPage {
       }
       infiniteScroll.complete();
     }, 1000);
-    // console.log(this.otherClip);
   }
 
   goVideoDetail(video_detail: any) {

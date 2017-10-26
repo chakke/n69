@@ -1,21 +1,31 @@
-<ion-content>
-    <ion-navbar>
-        <div class="a3-container a3-items-center a3-justify-between header">
+<ion-header>
+    <div class="header">
+        <div class="statusbar-height"></div>
+        <div class="a3-container a3-items-center a3-justify-between">
+            <div class="menu-button-left" (tap)="goBack()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </div>
             <div class="header-post">{{headerPost}}</div>
-            <div class="button-on-right">
-                <button class="button"><ion-icon name="ios-chatboxes-outline" color="light" ></ion-icon></button>
-                <button class="button"><ion-icon name="ios-bookmark-outline" color="light" ></ion-icon></button>
-                <button class="button"><ion-icon name="share" color="light" (click)="goShare()">
-                        <ion-fab-list side="top">
-                                <button ion-fab>Facebook</button>
-                <button ion-fab>Twitter</button>
-                <button ion-fab>Youtube</button>
-                </ion-fab-list>
-                </ion-icon>
+            <div class="div_comment">
+                <button class="button_right">
+                    <ion-icon name="ios-chatboxes-outline" color="light"></ion-icon>
+                </button>
+            </div>
+            <div class="div_save">
+                <button class="button_right">
+                    <ion-icon name="ios-bookmark-outline" color="light"></ion-icon>
+                </button>
+            </div>
+            <div class="div_share">
+                <button class="button_right">
+                    <ion-icon name="md-share" color="light" (click)="goShare()">
+                    </ion-icon>
                 </button>
             </div>
 
         </div>
-    </ion-navbar>
-    <iframe *ngIf="urlPost" [src]="urlPost" class="news"></iframe>
+    </div>
+</ion-header>
+<ion-content>
+    <iframe *ngIf="urlPost" [src]="urlPost" class="news" data-tap-disabled="true"></iframe>
 </ion-content>
