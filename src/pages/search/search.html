@@ -1,13 +1,14 @@
 <ion-header>
-    <ion-navbar no-padding hideBackButton>
-        <div class="a3-container a3-items-center a3-justify-between search_header">
+    <div class="header">
+        <div class="statusbar-height"></div>
+        <div class="a3-container a3-items-center a3-justify-between">
             <button class="btn-back" (tap)="back()">
                 <ion-icon name="arrow-back"></ion-icon>
             </button>
             <ion-searchbar class="search-box" [(ngModel)]="searchKey" [showCancelButton]="shouldShowCancel" (search)="searchPost()" (ionCancel)="onCancel($event)">
             </ion-searchbar>
         </div>
-    </ion-navbar>
+    </div>
 </ion-header>
 <ion-content>
 

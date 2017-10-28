@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from "@angular/platform-browser";
 import { IonicPage, NavParams, LoadingController, NavController } from 'ionic-angular';
-import { Storage } from "@ionic/storage";
 
 import { New69Module } from "../../providers/new69/new69";
+
+import { Storage } from "@ionic/storage";
 
 @IonicPage()
 @Component({
@@ -22,16 +23,18 @@ export class PageContent {
         public navParams: NavParams,
         public domSanitier: DomSanitizer,
         public loadingCtrl: LoadingController,
+        public mNavController: NavController,
         public storage: Storage,
-        public navCtrl: NavController
-    ) { }
+
+    ) {
+
+    }
 
     ionViewDidEnter() {
         let post = this.navParams.get('postId')
         this.headerPost = post.categoryName;
         this.urlPost = this.domSanitier.bypassSecurityTrustResourceUrl(post.url);
         setTimeout(() => {
-            console.log(post);
             this.postRead(post);
         }, 1000);
     }
@@ -43,7 +46,9 @@ export class PageContent {
                 postRead = [];
             } else {
                 data.forEach(item => {
-                    postRead.push(item);
+                    if (objectPost.contentId != item.contentId) {
+                        postRead.push(item);
+                    }
                 });
             }
             postRead.push(objectPost);
@@ -52,7 +57,7 @@ export class PageContent {
     }
 
     goBack() {
-        this.navCtrl.pop();
+        this.mNavController.pop();
     }
 
     goShare() {
@@ -64,6 +69,10 @@ export class PageContent {
             document.getElementById('share').style.display = 'block';
             this.isShow = true;
         }
+    }
+
+    onClickBack() {
+        this.mNavController.pop();
     }
 
 }

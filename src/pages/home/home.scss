@@ -4,7 +4,6 @@ page-home {
     .header{
         color: white;
         background-color: map-get($new69Colors, red );  
-        height: 3.5em;
         .menu-button-left{
             padding: 10px 16px;
             font-size: 1.4em;
@@ -27,5 +26,9 @@ page-home {
     }
     .text-ios-main{
         font-weight: bold;
+    }
+    .scroll-content{
+        overflow-y: none;
+        margin-top: 20%;
     }
 }

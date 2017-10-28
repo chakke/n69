@@ -31,14 +31,16 @@ export class ListPage {
             if (data == null || data == undefined) {
                 let mViewData = this.mNew69Module.getAppConfig().getViewData("menuTitle");
                 this.allList = mViewData.categorieName;
+                this.loadCheckList();
                 this.storage.set("allList", this.allList).then(() => {
                     console.log("Stored all List!");
                 }, error => console.log(error));
             } else {
                 this.allList = data;
+                this.loadCheckList();
             }
         });
-        this.loadCheckList();
+
     }
     /**Hàm cập nhật các trang */
     updateCheckList(cbItem, event) {
@@ -57,7 +59,7 @@ export class ListPage {
         this.storage.set("allList", this.allList).then(() => {
             console.log("add new allList!")
         }, error => console.log(error));
-        
+
     }
     /**Hàm load lại các trang được đánh dấu */
     loadCheckList() {
@@ -71,15 +73,12 @@ export class ListPage {
 
     clickUpdate() {
         this.loadCheckList()
-         this.storage.remove("titlePage").then(() => {
+        this.storage.remove("titlePage").then(() => {
             console.log("removed!");
         }, error => console.log(error))
         this.storage.set("titlePage", this.listCheck).then(() => {
             console.log("update new List of Title!")
-            console.log(this.listCheck);
-            
         }, error => console.log(error));
-        
         this.app.getRootNav().setRoot("HomePage");
     }
 }

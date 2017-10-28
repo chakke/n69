@@ -1,25 +1,20 @@
 <ion-header>
   <div class="header">
     <div class="statusbar-height"></div>
-    <div class="a3-container a3-items-center a3-justify-between" >
-        <div class="menu-button-left">
-            <ion-icon menuToggle name="menu"></ion-icon>
-        </div>
-        <div class="menu-title" (click)="goHomePage()">News 69</div>
-        <div class="menu-button-right" (tap)="goShare()">
-            <ion-icon name="ios-list-box-outline"></ion-icon>
-        </div>
+    <div class="a3-container a3-items-center a3-justify-between">
+      <div class="menu-button-left">
+        <ion-icon menuToggle name="menu"></ion-icon>
+      </div>
+      <div class="menu-title" (click)="goHomePage()">News 69</div>
+      <div class="menu-button-right" (tap)="goShare()">
+        <ion-icon name="ios-list-box-outline"></ion-icon>
+      </div>
     </div>
   </div>
+
 </ion-header>
 
 <ion-content>
-  <!-- <ion-tabs selectedIndex="0" (ionChange)="indexPage($event)">
-    <ion-tab id="home" [root]="pageMain" tabIcon="ios-home-outline"></ion-tab>
-    <ion-tab id="video" [root]="pageMain" tabIcon="ios-videocam-outline"></ion-tab>
-    <ion-tab *ngFor="let list of mCategories" id="{{list.name}}" [root]="pageMain" tabTitle="{{list.name}}"></ion-tab>
-  </ion-tabs> -->
-
   <super-tabs class="supertabs" *ngIf="mDidLoadTitle" scrollTabs="false" toolbarColor="main" toolbarBackground="light" (tabSelect)="indexPage($event)">
     <super-tab id="home" [root]="pageMain" icon="ios-home-outline"></super-tab>
     <super-tab id="video" [root]="pageVideo" icon="ios-videocam-outline"></super-tab>

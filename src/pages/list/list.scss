@@ -1,54 +1,51 @@
 page-list {
-    .header{
-        color: white;
-        background-color: map-get($new69Colors, red );  
-        line-height: 1.2em;
-        font-size: 1.2em;
-        .div_exit{
-            width: 10%;
-            .button_exit{
-                background-color: transparent;
-                color: white;
-                font-size: 1.5em;
-            }
-        }        
-        .div_title{
-            margin: auto;
-            font-size: 1.7rem;
-            margin-left: 15%;
-        }
-    }
-    .change-div{
-        width: 100%;
-        height: 10%;
-        position: fixed;
-        bottom: 0;
-        background-color: white;
-        padding-top: 2vh;
-        padding-bottom: 2vh;
-        padding-right: 10vh;
-        padding-left: 10vh;
-        .change-button{
-            height: 100%;
-            width: 100%;
-            background-color: rgb(210, 200, 200);
-            text-align: center;
-            font-size: 1.8rem;
-            color: white;
-            padding: 1.5vh;
-        }
-    }
+  .header {
+    color: white;
+    background: map-get($new69Colors, red);
+    font-size: 1.2em;
+    line-height: 1.2em;
+  }
 
-
-    .checkbox-div{
-        border-bottom: 1px solid #C6C2C2;
-        height: 10vh;
-        width: 100%;
-        padding: 3vh;
-        font-size: 1.8rem;
-        .checkbox{
-            width: 25px;
-            position: relative;
-        }
-    }
+  .header-btn{
+      padding: 10px 16px;
+      ion-icon{
+        font-size: 1.4em;
+      } 
+  }
+  .scroll-content {
+    padding-bottom: 10vh;
+  }
+  .change-div {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: white;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    padding-right: 10vh;
+    padding-left: 10vh;
+  }
+  .change-button {
+    width: 100%;
+    background-color: rgb(210, 200, 200);
+    text-align: center;
+    font-size: 1.8rem;
+    color: white;
+    padding: 1.5vh;
+  }
+  .icon-item {
+    margin-left: 5%;
+    width: 10%;
+  }
+  .checkbox {
+    width: 25px;
+    position: relative;
+  }
+  .checkbox-div {
+    border-bottom: 1px solid #C6C2C2;
+    height: 10vh;
+    width: 100%;
+    padding: 3vh;
+    font-size: 1.8rem;
+  }
 }

@@ -1,42 +1,36 @@
-page-content{
-    .header{
-        color: white;
-        background-color: map-get($new69Colors, red );  
-        .menu-button-left{
-            padding: 16px;
-            font-size: 1em;
-        }
-        .button_right{
-          background-color: transparent;
-
-        }
-        .div_share{
-
-        }
-        .div_save{
-
-        }
-        .div_comment{
-            margin-left: auto;
-            .button_comment{
-                margin-left: auto;
-            }
-        }
-        
-        .header-post{
-            font-size: 1.3em;
-            font-weight: initial;
-        }
+page-content {
+  .header {
+    color: white;
+    background: map-get($new69Colors, red);
+    .header-post {
+      font-size: 1.6em;
+      font-weight: initial;
+      color: white;
+      -webkit-line-clamp: $lines-to-show;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
-    
-    .scroll-content{
-        overflow-y: hidden;
+    .button-on-right {
+      padding: 5px;
+      font-size: 1em;
+      .button {
+        box-shadow: none;
+        background-color: transparent;
+        font-size: 1.5em;
+      }
     }
-    .news{
-        height: 100%;
-        width: 100%;
-        max-width: 100%;
-        border: none;
-    }
+  }
+  .header-btn {
+    font-size: 1.4em;
+    padding: 10px 16px;
+  }
+  .news {
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    border: none;
+    -webkit-overflow-scrolling: touch;
+    overflow: auto;
+  }
 }
-

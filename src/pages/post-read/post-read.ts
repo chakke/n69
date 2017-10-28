@@ -26,12 +26,15 @@ export class PostReadPage {
   ionViewDidLoad() {
     this.postRead = [];
     this.storage.get('postRead').then(data => {
-      data.forEach(item => {
-        this.postRead.push(item);
-        
-      });
-
-    })
+      if(data == null || data == undefined){
+        this.postRead = [];
+      }else{
+        data.forEach(item => {
+          this.postRead.push(item);
+          
+        });
+      }
+    });
   }
 
 
