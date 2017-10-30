@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
+import { IonicPage, NavController, App } from 'ionic-angular';
 
 import { New69Module } from "../../providers/new69/new69";
 

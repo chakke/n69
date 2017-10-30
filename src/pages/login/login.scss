@@ -1,10 +1,20 @@
 page-login {
-    .div_exit{
-        background-color: wheat;
-        .button_exit{
-            background-color: transparent;
-            color: black;
-            font-size: 2em;
+    .header{
+        color: white;
+        background-color: map-get($new69Colors, red );
+        font-size: 1.2em;
+        line-height: 1.2em;
+        .div_exit{
+            width: 10%;
+            .button_exit{
+                background-color: transparent;
+                color: white;
+                font-size: 1.5em;
+            }
+        }        
+        .div_title{
+            margin: auto;
+            font-size: 1.7rem;
         }
     }
 
@@ -15,8 +25,7 @@ page-login {
         padding-right: 5vh;
         padding-top: 30vh;
         padding-bottom: 40vh;
-        background-color: wheat;
-
+        background-color: white;
         .google-login{
             width: 50%;
             height: 100%;
@@ -42,6 +51,10 @@ page-login {
             }   
         }
 
+    }
+
+    .scroll-content{
+        overflow-y: hidden;
     }
     #googleIcon{
         background-image: url("../assets/new69/gg.png");

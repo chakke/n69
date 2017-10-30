@@ -4,6 +4,9 @@ page-loading {
         background-position: center;
         background-size: cover;
     }
+    .scroll-content{
+        overflow: hidden;
+    }
 }
 .loading-md .loading-wrapper{
     background: initial;

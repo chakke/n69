@@ -4,14 +4,20 @@ page-list {
     background: map-get($new69Colors, red);
     font-size: 1.2em;
     line-height: 1.2em;
+    .div_exit{
+      width: 10%;
+      .button_exit{
+          background-color: transparent;
+          color: white;
+          font-size: 1.5em;
+      }
+    }        
+    .div_title{
+      margin: auto;
+      font-size: 1.7rem;
+    }
   }
 
-  .header-btn{
-      padding: 10px 16px;
-      ion-icon{
-        font-size: 1.4em;
-      } 
-  }
   .scroll-content {
     padding-bottom: 10vh;
   }

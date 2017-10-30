@@ -28,7 +28,10 @@ page-home {
         font-weight: bold;
     }
     .scroll-content{
-        overflow-y: none;
+        overflow-y: hidden;
         margin-top: 20%;
+    }
+    ion-content.has-refresher > .scroll-content{
+        overflow-y: scroll;
     }
 }

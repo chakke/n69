@@ -15,8 +15,22 @@ import { SuperTabsModule }      from 'ionic2-super-tabs';
 import { AngularFireModule }    from 'angularfire2';
 // import { AngularFireDatabaseModule }  from 'angularfire2/database';
 import { AngularFireDatabaseModule }  from 'angularfire2/database-deprecated';
+import { CloudSettings, CloudModule } from "@ionic/cloud-angular";
 
 import { New69FirebaseService } from "../providers/new69/new69-firebase-service";
+
+
+const cloudSettings: CloudSettings = {
+  'core': {
+    'app_id': 'c1c4169f'
+  },
+  'auth': {
+    'google': {
+      'webClientId': '942430182470-ssp9q8d0h7tm3ds8jp83lqq0nmiv00so.apps.googleusercontent.com',
+      'scope': ['https://www.googleapis.com/auth/calendar.readonly']
+    }
+  }
+}
 
 export const firebaseConfig = {
       apiKey: "AIzaSyA3Vb6PEGQo8VLcQRrun45Q7d0fkrrqacc",
@@ -41,6 +55,7 @@ export const firebaseConfig = {
     IonicStorageModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
+    CloudModule.forRoot(cloudSettings)
   ],
   bootstrap: [IonicApp],
   entryComponents: [

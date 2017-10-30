@@ -5,8 +5,8 @@ import { Headers } from '@angular/http';
 
 export class New69HttpService {
     private SERVICE_URL: string = "http://newsapi.ecdc.vn/phone/getposts";
-    private CLIENT_KEY: string = "";
-    private ACCESS_KEY: string = "";
+    // private CLIENT_KEY: string = "";
+    // private ACCESS_KEY: string = "";
     private DEVICE_ID: string = "";
     mHeaderWithKey: Headers;
     mHeader: Headers;

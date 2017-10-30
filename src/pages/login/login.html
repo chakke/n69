@@ -1,13 +1,29 @@
-<div class="div_exit">
-    <button class="button_exit" (click)="back()">
-        <ion-icon name="ios-arrow-round-back-outline"></ion-icon>
-    </button>
-</div>
-<div class="row div_login">
-    <div class="google-login">
-        <div id="googleIcon" class="google-icon" (click)="doGoogleLogin()"></div>
+<ion-header>
+    <div class="header">
+        <div class="statusbar-height"></div>
+        <div class="a3-container a3-items-center a3-justify-between">
+            <div class="div_exit">
+                <button class="button_exit" (tap)="exit()">
+                    <ion-icon name="ios-close-outline"></ion-icon>
+                </button>
+            </div>
+            <div class="div_title">
+                Đăng nhập
+            </div>
+        </div>
     </div>
-    <div class="facebook-login">
-        <div id="facebookIcon" class="facebook-icon" (click)="doFacebookLogin()"></div>
+</ion-header>
+<ion-content>
+    <div class="row div_login">
+        <div class="google-login">
+            <div id="googleIcon" class="google-icon" (tap)="doGoogleLogin()"></div>
+        </div>
+        <div class="facebook-login">
+            <div id="facebookIcon" class="facebook-icon" (click)="doFacebookLogin()"></div>
+        </div>
     </div>
-</div>
+
+    <div style="height: 10vh;width: 10vh">
+        <img src="{{profile}}" alt="">
+    </div>
+</ion-content>

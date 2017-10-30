@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { GoogleAuth, User } from "@ionic/cloud-angular";
 
 
 @IonicPage()
@@ -10,17 +11,28 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public googleAuth: GoogleAuth,
+    public user: User
+  ) {
   }
 
-  back() {
+  ionViewDidLoad() {
+  }
+
+  exit() {
     this.navCtrl.setRoot("HomePage");
   }
-  doGoogleLogin(){
-
+  doGoogleLogin() {
+    this.googleAuth.login().then(data =>{
+      alert("success");
+    }, error => {
+      alert("error");
+      alert(JSON.stringify(error));
+    });
   }
-  doFacebookLogin(){
-    
+  doFacebookLogin() {
   }
-
 }

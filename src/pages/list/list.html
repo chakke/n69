@@ -1,14 +1,19 @@
 <ion-header>
-
   <div class="header">
     <div class="statusbar-height"></div>
-    <div class="a3-container a3-items-center">
-      <div class="header-btn" (tap)="clickUpdate()"><ion-icon name="ios-close-outline"></ion-icon></div>
-      <div class="header-title a3-flex-1">Tùy chọn chuyên mục</div>
+    <div class="a3-container a3-items-center a3-justify-between">
+      <div class="div_exit">
+        <button class="button_exit" (tap)="clickUpdate()">
+          <ion-icon name="ios-close-outline"></ion-icon>
+        </button>
+      </div>
+      <div class="div_title">
+        Tùy chọn chuyên mục
+      </div>
     </div>
   </div>
-
 </ion-header>
+
 <ion-content>
   <div>
     <div *ngFor="let item of allList" (change)="updateCheckList(item, $event)">
@@ -23,7 +28,7 @@
   </div>
   <div class="change-div" (tap)="clickUpdate()">
     <div id="button-change" class="change-button">
-     Thay đổi
+      Thay đổi
     </div>
   </div>
 </ion-content>
