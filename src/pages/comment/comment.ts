@@ -3,8 +3,6 @@ import { IonicPage, App, NavController, NavParams } from "ionic-angular";
 
 import { New69FirebaseService } from "../../providers/new69/new69-firebase-service";
 
-import { Comment } from "../../providers/new69/new69-post";
-
 @IonicPage()
 @Component({
     selector: 'comment-page',

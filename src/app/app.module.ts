@@ -13,6 +13,9 @@ import { MyApp }                from './app.component';
 import { SuperTabsModule }      from 'ionic2-super-tabs'; 
 
 import { AngularFireModule }    from 'angularfire2';
+import { GooglePlus }           from "@ionic-native/google-plus";
+import { Facebook }             from "@ionic-native/facebook";
+import firebase                 from "firebase";
 // import { AngularFireDatabaseModule }  from 'angularfire2/database';
 import { AngularFireDatabaseModule }  from 'angularfire2/database-deprecated';
 import { CloudSettings, CloudModule } from "@ionic/cloud-angular";
@@ -39,7 +42,8 @@ export const firebaseConfig = {
       projectId: "firebase-new69",
       storageBucket: "firebase-new69.appspot.com",
       messagingSenderId: "84975284739"
-};
+}
+firebase.initializeApp(firebaseConfig);
 
 @NgModule({
   declarations: [
@@ -68,6 +72,8 @@ export const firebaseConfig = {
     New69Module,
     HttpService,
     New69FirebaseService,
+    GooglePlus,
+    Facebook
   ]
 })
 export class AppModule {}

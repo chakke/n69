@@ -37,68 +37,6 @@ export class VideoClip {
     }
 }
 
-export class CommentOfCmt {
-    cmtContent: string;
-    timeCmt: string;
-    userCmt: string;
-    key: string;
-    onResponseComment(data) {
-        this.cmtContent = data.cmtContent;
-        this.timeCmt = this.convertTime(data.timeCmt);
-        this.userCmt = data.userCmt;
-        this.key = data.$key;
-    }
-    convertTime(date: number): string {
-        let miliseconds = (new Date().getTime() - (date));
-        let time: string;
-        if (miliseconds <= 60000) {
-            time = "1p trước";
-        } else if (miliseconds > 60000 && miliseconds < 3600000) {
-            let minutes = Math.floor(miliseconds / 60000);
-            time = minutes + "p trước";
-        }
-        else if (3600000 < miliseconds && miliseconds < 86400000) {
-            let hours = Math.floor(miliseconds / 3600000);
-            time = hours + "h trước";
-        } else if (miliseconds > 86400000) {
-            let days = Math.floor(miliseconds / 86400000);
-            time = days + "ngày trước"
-        }
-        return time;
-    }
-}
-
-export class Comment {
-    cmtContent: string;
-    timeCmt: string;
-    userCmt: string;
-    key: string;
-    onResponseComment(data) {
-        this.cmtContent = data.cmtContent;
-        this.timeCmt = this.convertTime(data.timeCmt);
-        this.userCmt = data.userCmt;
-        this.key = data.$key;
-    }
-    convertTime(date: number): string {
-        let miliseconds = (new Date().getTime() - (date));
-        let time: string;
-        if (miliseconds <= 60000) {
-            time = "1p trước";
-        } else if (miliseconds > 60000 && miliseconds < 3600000) {
-            let minutes = Math.floor(miliseconds / 60000);
-            time = minutes + "p trước";
-        }
-        else if (3600000 < miliseconds && miliseconds < 86400000) {
-            let hours = Math.floor(miliseconds / 3600000);
-            time = hours + "h trước";
-        } else if (miliseconds > 86400000) {
-            let days = Math.floor(miliseconds / 86400000);
-            time = days + "ngày trước"
-        }
-        return time;
-    }
-}
-
 export class Post {
     //post
     contentId: number
@@ -147,7 +85,6 @@ export class Post {
 
     getContentCmt(item): any[]{
         let arr : any = [];
-        let cmtRep : any = [];
         for (var key in item) {
             if (item.hasOwnProperty(key)) {
                 var elements = item[key];
