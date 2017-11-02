@@ -111,16 +111,6 @@ export class Post {
     totalComments: number;
     key: string;
     allContent: any[];
-
-    //user
-
-    //comment
-    cmtContent: string;
-    timeCmt: string;
-    userCmt: string;
-    cmtRep: any[];
-    //userRep
-    //cmtRep
     onResponsePost(data) {
         this.contentId = data.contentId;
         this.url = data.url;
@@ -132,7 +122,6 @@ export class Post {
         this.totalComments = data.totalComments;
         this.key = data.$key;
         this.allContent =  this.getUserCmt(data);
-        console.log(this.allContent);
         
     }
 
@@ -156,20 +145,20 @@ export class Post {
         return arr;
     }
 
-    onResponseCmt(data) {
-        this.cmtContent = data.cmtContent;
-        this.timeCmt = this.convertTime(data.timeCmt);
-        this.userCmt = data.userCmt;
-        this.cmtRep = this.getUserRep(data);
-    }
-
     getContentCmt(item): any[]{
         let arr : any = [];
+        let cmtRep : any = [];
         for (var key in item) {
             if (item.hasOwnProperty(key)) {
                 var elements = item[key];
-                arr.push(elements)
-                arr.push(this.getUserRep(elements))
+                arr.push({
+                    cmtContent: elements.cmtContent,
+                    timeCmt: this.convertTime(elements.timeCmt),
+                    userCmt: elements.userCmt, 
+                    userProfile: elements.userProfile,
+                    like: elements.like,
+                    allCmtRep: this.getUserRep(elements)
+                });
             }
         }
         return arr; 
@@ -181,21 +170,18 @@ export class Post {
             if (
                 key != "cmtContent" &&
                 key != "timeCmt" &&
-                key != "userCmt"
+                key != "userCmt" &&
+                key != "userProfile" &&
+                key != "like"
             ) {
                 var element = item[key];
-                arr.push(element);
-            }
-        }
-        return arr;
-    }
-
-    getRepCmt(item): any[]{
-        let arr : any [];
-        for (var key in item) {
-            if (item.hasOwnProperty(key)) {
-                var element = item[key];
-                arr.push(element)
+                arr.push({
+                    cmtContent: element.cmtContent,
+                    timeCmt: this.convertTime(element.timeCmt),
+                    userCmt: element.userCmt,
+                    userProfile: element.userProfile,
+                    like: element.like,
+                });
             }
         }
         return arr;
@@ -271,20 +257,20 @@ export class Post {
     }
 
     convertTime(date: number): string {
-        let miliseconds = (new Date().getTime() - (date * 1000));
+        let miliseconds = (new Date().getTime() - (date));
         let time: string;
         if (miliseconds <= 60000) {
-            time = "1p trước";
+            time = "1m";
         } else if (miliseconds > 60000 && miliseconds < 3600000) {
             let minutes = Math.floor(miliseconds / 60000);
-            time = minutes + "p trước";
+            time = minutes + "m";
         }
         else if (3600000 < miliseconds && miliseconds < 86400000) {
             let hours = Math.floor(miliseconds / 3600000);
-            time = hours + "h trước";
+            time = hours + "h";
         } else if (miliseconds > 86400000) {
             let days = Math.floor(miliseconds / 86400000);
-            time = days + "ngày trước"
+            time = days + "d"
         }
         return time;
     }

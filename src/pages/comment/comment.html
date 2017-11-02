@@ -15,39 +15,48 @@
 </ion-header>
 <ion-content>
     <div class="div_list_cmt">
-        <div class="div_cmt" *ngFor="let cmt of commentUser">
-            <div class="div_cmt_content">
-                {{cmt.cmtContent}}
-            </div>
-            <div class="div_cmt_user row">
+        <div class="div_cmt" *ngFor="let cmt of commentList">
+            <div class="row">
                 <div class="div_cmt_user_profile">
-                    <img class="img_cmt_user_profile" src="/assets/new69/avatar.png" alt="">
-                </div>
-                <div class="div_cmt_user_name">
-                        <span class="span_user">{{cmt.userCmt}}</span>
-                </div>
-                <div class="div_cmt_user_time">{{cmt.timeCmt}}</div>
-            </div>
-            <div class="div_cmt_view">
-                <span class="span_cmt_view">69 like | Trả lời</span>
-            </div>
-            <div class="div_cmt_answer">
-                <div class="div_cmt_asw">
-                    <div class="div_cmt_content_asw">
-                        Đây là nội dung comment đây là nội dung comment đây là nội dung comment.
+                    <div class="div_profile">
+                        <img class="img_cmt_user_profile" src={{cmt.userProfile}} alt="">
                     </div>
-                    <div class="div_cmt_user_asw row">
-                        <div class="div_cmt_user_profile_asw">
-                            <img class="img_cmt_user_profile_asw" src="/assets/new69/avatar.png" alt="">
+                </div>
+                <div class="div_content">
+                    <div class="div_content_cmt">
+                        <div class="div_content_name">{{cmt.userCmt}}</div>
+                        <div class="div_content_cmt">{{cmt.cmtContent}}</div>
+                    </div>
+                    <div class="div_info_cmt">
+                        <span class="span_info_cmt">
+                            {{cmt.timeCmt}} {{cmt.like}} like {{getNumberCmt(cmt.allCmtRep)}} reply
+                        </span>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="div_cmt_rep" *ngFor="let cmtRep of cmt.allCmtRep">
+                <div class="row">
+                    <div class="div_cmt_user_profile_rep">
+                        <img class="img_cmt_user_profile_rep" src="/assets/new69/avatar.png" alt="">
+                    </div>
+                    <div class="div_content_rep">
+                        <div class="div_content_cmt_rep">
+                            <div class="div_content_name_rep">{{cmtRep.userCmt}}</div>
+                            <div class="div_content_cmt_rep">{{cmtRep.cmtContent}}</div>
                         </div>
-                        <div class="div_cmt_user_name_asw">Kim Cương</div>
-                        <div class="div_cmt_user_time_asw">1 giờ trước</div>
-                    </div>
-                    <div class="div_cmt_view_asw">
-                        <span class="span_cmt_view_asw">69 like | Trả lời</span>
+                        <div class="div_info_cmt_rep">
+                            <span class="span_info_cmt_rep">
+                                {{cmtRep.timeCmt}} {{cmtRep.like}} like
+                            </span>
+
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <div class="div_view_more" *ngIf="getCmtRep(cmt.allCmtRep)">view reply</div>
         </div>
     </div>
     <div class="div_comment row">

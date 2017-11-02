@@ -52,12 +52,10 @@ export class MainContentPage {
     ionViewDidLoad() {
         this.mFirebase.getPostFirebase();
         this.mFirebase.post.subscribe(data =>{
-            data.forEach(element => {
                 let post = new Post();
-                post.onResponsePost(element)
-                // console.log(post);
+                post.onResponsePost(data[0])
+                console.log(post);
                 
-            });
         })
     }
 

@@ -29,56 +29,82 @@ comment-page{
         overflow: auto;
         .div_cmt{
             overflow-y: auto;
-            .div_cmt_user{
-                height: 2.5em;
-                width: 100%;
-                .div_cmt_user_profile{
-                    height: 100%;
-                    width: 15%;
-                    padding-left: 0.5em;
+            padding: 2%;
+            .div_cmt_user_profile{
+                height: 100%;
+                width: 15%;
+                .div_profile{
+                    height: 3em;
+                    width: 3em;
                     .img_cmt_user_profile{
                         height: 100%;
                         width: 100%;
+                        background-color: red;
+                        border-radius: 50%;
                     }
                 }
-                .div_cmt_user_name{
-                    .span_user{
-                        color: rgb(233, 109, 109)
+                
+            }
+            .div_content{
+                height: 100%;
+                max-width: 85%;
+                min-width: 50%;
+                .div_content_cmt{
+                    background-color: wheat;
+                    border-radius: 10px;
+                    padding: 5px;
+                    .div_content_name{
+                        font-weight: bold
+                    }
+                    .div_content_cmt{
+
+                    }
+                }
+                .div_info_cmt{
+                    font-size: 0.9em;
+                    .span_info_cmt{
+                        margin-left: 5%;
                     }
                 }
             }
-            .div_cmt_view{
-                height: 2em;
-                width: 100%;
-                float: right;
-                .span_cmt_view{
-                    float: right;
-                }
+            .div_view_more{
+                text-align: center;
             }
-            .div_cmt_answer{
-                height: 2em;
-                width: 100%;
-                padding-left: 1em;
-                .div_cmt_asw{
-                    .div_cmt_user_asw{
-                        height: 2.5em;
+            .div_cmt_rep{
+                padding-top: 5px;
+                padding-bottom: 5px;
+                padding-right: 5px;
+                padding-left: 10%;                
+                .div_cmt_user_profile_rep{
+                    height: 100%;
+                    width: 15%;
+                    .img_cmt_user_profile_rep{
+                        height: 100%;
                         width: 100%;
-                        .div_cmt_user_profile_asw{
-                            height: 100%;
-                            width: 15%;
-                            padding-left: 0.5em;
-                            .img_cmt_user_profile_asw{
-                                height: 100%;
-                                width: 100%;
-                            }
+                        background-color: red;
+                        border-radius: 50%;
+                    }
+                }
+                .div_content_rep{
+                    height: 100%;
+                    max-width: 85%;
+                    min-width: 50%;
+                    padding-left: 2%;
+                    .div_content_cmt_rep{
+                        background-color: wheat;
+                        border-radius: 10px;
+                        padding: 5px;
+                        .div_content_name_rep{
+                            font-weight: bold
+                        }
+                        .div_content_cmt_rep{
+    
                         }
                     }
-                    .div_cmt_view_asw{
-                        height: 2em;
-                        width: 100%;
-                        float: right;
-                        .span_cmt_view_asw{
-                            float: right;
+                    .div_info_cmt_rep{
+                        font-size: 0.9em;
+                        .span_info_cmt{
+                            margin-left: 5%;
                         }
                     }
                 }

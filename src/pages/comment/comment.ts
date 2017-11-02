@@ -15,6 +15,7 @@ export class CommentPage {
     comment: string;
 
     commentUser: Array<Comment> = [];
+    commentList: any = [];
 
     constructor(
         public app: App,
@@ -25,22 +26,36 @@ export class CommentPage {
 
     ionViewDidLoad() {
         let post = this.navParams.get('postId');
-        console.log(post);
-        
-        this.mFirebaseService.getCommentPerEachPost();
-        this.mFirebaseService.comment.subscribe(data => {
-            data.forEach(item => {
-                let comment = new Comment();
-                comment.onResponseComment(item);
-                this.commentUser.push(comment);
+        post.allContent.forEach(user => {
+            user.forEach(comment => {
+                this.commentList.push(comment)
             });
         });
-        this.mFirebaseService.getCommentOfComment(post.key, "user1", post.key);
-        this.mFirebaseService.commentOfCmt.subscribe(data =>{
-            console.log(data);
-            
-        })
+        
     }
+
+    getNumberCmt(array): number{
+        let arr : any =[];
+        array.forEach(item => {
+            arr.push(item);
+        });
+        return arr.length
+    }
+
+    getCmtRep(array): boolean{
+        let hasCmt: boolean;
+        let arr : any =[];
+        array.forEach(item => {
+            arr.push(item);
+        });
+        if(arr.length < 3){
+            hasCmt = false;
+        }else{
+            hasCmt = true;
+        }
+        return hasCmt;
+    }
+
     exit() {
         this.mNavController.pop();
     }
