@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core";
 
+import firebase from 'firebase';
+
 
 // import { AngularFireDatabase } from "angularfire2/database";
 import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database-deprecated";
@@ -8,14 +10,37 @@ import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/databa
 @Injectable()
 export class New69FirebaseService {
 
-    // post: any;
-    // video: any;
+    postFirebase = firebase.database().ref('/post');
+
     post: FirebaseListObservable<any>;
     video: FirebaseListObservable<any>;
+    comment: FirebaseListObservable<any>;
+    commentOfCmt: FirebaseListObservable<any>;
     constructor(
         public mFirebase: AngularFireDatabase,
     ) { }
 
+    addComment(key, user, cmtContent) {
+        var promise = new Promise((resolve) => {
+
+            this.postFirebase.child(key).child(user).push({
+                userCmt: user,
+                cmtContent: cmtContent,
+                timeCmt: new Date().getTime()
+            }).then(() => {
+                resolve(true)
+            })
+        });
+        return promise;
+    }
+
+    getCommentPerEachPost() {
+        this.comment = this.mFirebase.list('/post/0/user1');
+    }
+
+    getCommentOfComment(namePost, nameUser, keyUser) {
+        this.commentOfCmt = this.mFirebase.list('/post' + '/' + namePost + '/' + nameUser + '/' + keyUser);
+    }
 
 
     getData() {
@@ -24,6 +49,7 @@ export class New69FirebaseService {
 
     getPostFirebase() {
         this.post = this.mFirebase.list('/post');
+
     }
     pushData(data: any) {
         this.post.push({

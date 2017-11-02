@@ -31,7 +31,7 @@ export class PageContent {
     }
 
     ionViewDidEnter() {
-        let post = this.navParams.get('postId')
+        let post = this.navParams.get('postId');
         this.headerPost = post.categoryName;
         this.urlPost = this.domSanitier.bypassSecurityTrustResourceUrl(post.url);
         setTimeout(() => {
@@ -59,6 +59,14 @@ export class PageContent {
     goBack() {
         this.mNavController.pop();
     }
+
+    goComment(){
+        let post = this.navParams.get('postId');
+        this.mNavController.push("CommentPage", { postId: post});
+    }
+    // goContentPage(post_content: any) {
+    //     this.navController.push("PageContent", { postId: post_content });
+    // }
 
     goShare() {
 

@@ -50,7 +50,15 @@ export class MainContentPage {
     }
 
     ionViewDidLoad() {
-        // this.loadHomePage();
+        this.mFirebase.getPostFirebase();
+        this.mFirebase.post.subscribe(data =>{
+            data.forEach(element => {
+                let post = new Post();
+                post.onResponsePost(element)
+                // console.log(post);
+                
+            });
+        })
     }
 
     ionViewDidEnter() {
@@ -109,8 +117,7 @@ export class MainContentPage {
     loadDataPage(index: string, listPost: any[]) {
         if (index == "home") {
             this.loadPost(listPost);
-        }
-        else {
+        } else {
             listPost = listPost.filter(element => {
                 return element.categoryName.toLowerCase().indexOf(index.toLowerCase()) > -1;
             })

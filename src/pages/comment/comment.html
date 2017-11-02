@@ -1,16 +1,68 @@
 <ion-header>
-
-    <ion-navbar>
-        <div class="row">
-            <ion-icon style="font-size: 2.5em;margin-left: 3%;color: white" name="ios-close-outline" (tap)="exit()"></ion-icon>
-            <ion-title style="text-align: center;font-weight: inherit"> Bình luận</ion-title>
-
+    <div class="header">
+        <div class="statusbar-height"></div>
+        <div class="a3-container a3-items-center a3-justify-between">
+            <div class="div_exit">
+                <button class="button_exit" (tap)="exit()">
+                    <ion-icon name="ios-close-outline"></ion-icon>
+                </button>
+            </div>
+            <div class="div_title">
+                Bình luận
+            </div>
         </div>
-    </ion-navbar>
-
+    </div>
 </ion-header>
-
-
-<ion-content padding>
-
+<ion-content>
+    <div class="div_list_cmt">
+        <div class="div_cmt" *ngFor="let cmt of commentUser">
+            <div class="div_cmt_content">
+                {{cmt.cmtContent}}
+            </div>
+            <div class="div_cmt_user row">
+                <div class="div_cmt_user_profile">
+                    <img class="img_cmt_user_profile" src="/assets/new69/avatar.png" alt="">
+                </div>
+                <div class="div_cmt_user_name">
+                        <span class="span_user">{{cmt.userCmt}}</span>
+                </div>
+                <div class="div_cmt_user_time">{{cmt.timeCmt}}</div>
+            </div>
+            <div class="div_cmt_view">
+                <span class="span_cmt_view">69 like | Trả lời</span>
+            </div>
+            <div class="div_cmt_answer">
+                <div class="div_cmt_asw">
+                    <div class="div_cmt_content_asw">
+                        Đây là nội dung comment đây là nội dung comment đây là nội dung comment.
+                    </div>
+                    <div class="div_cmt_user_asw row">
+                        <div class="div_cmt_user_profile_asw">
+                            <img class="img_cmt_user_profile_asw" src="/assets/new69/avatar.png" alt="">
+                        </div>
+                        <div class="div_cmt_user_name_asw">Kim Cương</div>
+                        <div class="div_cmt_user_time_asw">1 giờ trước</div>
+                    </div>
+                    <div class="div_cmt_view_asw">
+                        <span class="span_cmt_view_asw">69 like | Trả lời</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="div_comment row">
+        <div class="div_profile">
+            <img class="img_profile" src="/assets/new69/avatar.png" alt="">
+        </div>
+        <div class="div_input_cmt">
+            <div class="div_input_cmt1">
+                <input class="input_cmt" [(ngModel)]="comment" type="text" placeholder="Your comment here...">
+            </div>
+        </div>
+        <div class="div_btn_cmt">
+            <button class="btn_cmt" (tap)="writeComment()">
+                <ion-icon name="ios-arrow-forward-outline"></ion-icon>
+            </button>
+        </div>
+    </div>
 </ion-content>

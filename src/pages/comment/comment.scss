@@ -1,7 +1,142 @@
-.toolbar-title-md{
-    font-weight: inherit;
-    color: white;
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #c71a1a;
 }
-.toolbar-background-md{
-    background: map-get($new69Colors, red );
+comment-page{
+    .scroll-content{
+        overflow-y: hidden;
+    }
+    .header{
+        color: white;
+        background-color: map-get($new69Colors, red );
+        font-size: 1.2em;
+        line-height: 1.2em;
+        .div_exit{
+            width: 10%;
+            .button_exit{
+                background-color: transparent;
+                color: white;
+                font-size: 1.5em;
+            }
+        }        
+        .div_title{
+            margin: auto;
+            font-size: 1.7rem;
+            margin-left: 30%;
+        }
+    }
+    .div_list_cmt{
+        height: 100%;
+        overflow: auto;
+        .div_cmt{
+            overflow-y: auto;
+            .div_cmt_user{
+                height: 2.5em;
+                width: 100%;
+                .div_cmt_user_profile{
+                    height: 100%;
+                    width: 15%;
+                    padding-left: 0.5em;
+                    .img_cmt_user_profile{
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+                .div_cmt_user_name{
+                    .span_user{
+                        color: rgb(233, 109, 109)
+                    }
+                }
+            }
+            .div_cmt_view{
+                height: 2em;
+                width: 100%;
+                float: right;
+                .span_cmt_view{
+                    float: right;
+                }
+            }
+            .div_cmt_answer{
+                height: 2em;
+                width: 100%;
+                padding-left: 1em;
+                .div_cmt_asw{
+                    .div_cmt_user_asw{
+                        height: 2.5em;
+                        width: 100%;
+                        .div_cmt_user_profile_asw{
+                            height: 100%;
+                            width: 15%;
+                            padding-left: 0.5em;
+                            .img_cmt_user_profile_asw{
+                                height: 100%;
+                                width: 100%;
+                            }
+                        }
+                    }
+                    .div_cmt_view_asw{
+                        height: 2em;
+                        width: 100%;
+                        float: right;
+                        .span_cmt_view_asw{
+                            float: right;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .div_comment{
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 3.5em;
+        background-color: wheat;
+        .div_profile{
+            height: 100%;
+            width: 15%;
+            padding: 1px;
+            padding-top: 0.33em;
+            padding-bottom: 0.33em;
+            padding-left: 0.33em;
+            .img_profile{
+                border-radius: 50%;
+                height: 100%;
+                background-color: aqua;
+            }
+        }
+        .div_input_cmt{
+            width: 70%;
+            padding: 0.5em;
+            .div_input_cmt1{
+                height: 100%;
+                width: 100%;
+                background-color: white;
+                padding-left: 0.5em;
+                padding-right: 0.5em;
+                .input_cmt{
+                    height: 100%;
+                    width: 100%;
+                    border: none;
+                    font-size: 1.2em;
+                    color: #c71a1a
+                }
+            }
+            
+        }
+        .div_btn_cmt{
+            height: 100%;
+            width: 15%;
+            padding-bottom: 0.33em;
+            padding-top: 0.33em;
+            padding-right: 0.33em;
+            float: right;
+            .btn_cmt{
+                height: 100%;
+                width: 100%;
+                font-size: 2em;
+                background-color: transparent;
+            }
+        }
+    }
 }
