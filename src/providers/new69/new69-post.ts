@@ -132,18 +132,24 @@ export class Post {
         this.totalComments = data.totalComments;
         this.key = data.$key;
         this.allContent =  this.getUserCmt(data);
+        console.log(this.allContent);
+        
     }
 
     getUserCmt(item): any[]{
         let arr : any = [];
         for (var key in item) {
-            console.log(key);
-            
-            if (key) {
+            if (
+                key != "date" && 
+                key != "description" &&
+                key != "title" &&
+                key != "contentId" &&
+                key != "totalComments" &&
+                key != "categoryName" &&
+                key != "avatarUrl" &&
+                key != "url") {
                 var element = item[key];
-                // console.log(element);
-                
-                // arr.push(this.getContentCmt(element));
+                arr.push(this.getContentCmt(element));
             }
         }
         
@@ -163,7 +169,7 @@ export class Post {
             if (item.hasOwnProperty(key)) {
                 var elements = item[key];
                 arr.push(elements)
-                // arr.push(this.getUserRep(elements))
+                arr.push(this.getUserRep(elements))
             }
         }
         return arr; 
@@ -171,11 +177,12 @@ export class Post {
 
     getUserRep(item) : any[]{
         let arr : any = [];
-        delete item.cmtContent;
-        delete item.timeCmt;
-        delete item.userCmt;
         for (var key in item) {
-            if (item.hasOwnProperty(key)) {
+            if (
+                key != "cmtContent" &&
+                key != "timeCmt" &&
+                key != "userCmt"
+            ) {
                 var element = item[key];
                 arr.push(element);
             }
