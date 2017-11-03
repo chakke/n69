@@ -31,8 +31,7 @@ export class New69Module {
       },
       {
         id: 1, name: "Cài đặt", items: [
-          { id: 0, name: "Nhận thông báo", icon: "ios-notifications-outline", page: "NoficationPage", isActive: false },
-          { id: 1, name: "Xóa bộ nhớ đệm", icon: "ios-information-circle-outline", isActive: false },
+          { id: 0, name: "Xóa bộ nhớ đệm", icon: "ios-information-circle-outline", isActive: false }
         ]
       },
       {

@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, IonicPage, MenuController, App, LoadingController } from 'ionic-angular';
+import { NavController, IonicPage, MenuController, App, LoadingController, Events } from 'ionic-angular';
 import { New69Module } from '../../providers/new69/new69';
 import { Storage } from "@ionic/storage";
 
@@ -19,7 +19,7 @@ export class HomePage {
     @ViewChild(SuperTabs) superTabs: SuperTabs;
     pageMain: any = 'MainContentPage';
     pageVideo: any = 'VideoPage';
-    isShow: boolean = false;
+    isLogin: boolean = false;
     tabIndex: string;
     titlePage: Array<any>;
     show: boolean = true;
@@ -34,20 +34,21 @@ export class HomePage {
         public app: App,
         public loadingCtrl: LoadingController,
         private storage: Storage,
+        public event: Events
     ) {
     }
 
     ionViewDidLoad() {
         this.mNew69Module.titlePage = "home";
         this.getTitlePage();
-        // let loading = this.loadingCtrl.create({
-        //     spinner: "crescent",
-        //     duration: 500
-        // })
-        // loading.present();
+        this.storage.get('userInfo').then(data => {
+            if (data == null || data == undefined) {
+                this.enableMenu(false);
 
-
-
+            } else {
+                this.enableMenu(true);
+            }
+        });
     }
 
     getTitlePage() {
@@ -92,7 +93,7 @@ export class HomePage {
             }
         });
     }
-    
+
 
     onClickBack() {
         this.navCtrl.setRoot("HomePage");

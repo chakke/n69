@@ -66,50 +66,6 @@ export class MainContentPage {
         }, 100);
     }
 
-    // requestPost() {
-    //     let loading = this.loadingCtrl.create({
-    //         dismissOnPageChange: true
-    //     })
-    //     loading.present();
-    //     this.posts = [];
-    //     this.mNew69Module.getHttpService().requestPostDetail().then(data => {
-    //         console.log(data);
-    //         this.onResponsePost(data);
-    //         loading.dismiss()
-    //     });
-    // }
-
-    /**Hàm lấy dữ liệu */
-    // onResponsePost(data) {
-    //     data.data.forEach(element => {
-    //         let post = new Post();
-    //         post.onResponsePost(element);
-    //         this.posts.push(post);
-    //     });
-    //     this.mNew69Module.mNew69Post.posts = this.posts;
-    //     this.storage.set("post", this.posts).then(() => console.log("Stored post!"),
-    //         error => console.log("error Storing post!", error));
-    // }
-
-    /**Hàm xử lý dữ liệu */
-    // loadAllData(titlePage: string) {
-    //     this.storage.get('post').then(data => {
-    //         if (data == null || data == undefined) {
-    //             this.requestPost();
-    //             return
-    //         };
-    //         data.forEach(element => {
-    //             let post = new Post();
-    //             post.onResponsePost(element);
-    //             this.posts.push(post);
-    //         });
-    //         this.loadDataPage(titlePage, data);
-    //         this.mNew69Module.didLoadPost = true;
-    //     }, error => {
-    //         console.log(error);
-    //         this.requestPost();
-    //     });
-    // }
 
     /**Hàm lấy dữ liệu ra cho từng tiêu đề */
     loadDataPage(index: string, listPost: any[]) {

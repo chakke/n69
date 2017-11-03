@@ -39,7 +39,9 @@
             <div class="div_cmt_rep" *ngFor="let cmtRep of cmt.allCmtRep">
                 <div class="row">
                     <div class="div_cmt_user_profile_rep">
-                        <img class="img_cmt_user_profile_rep" src="/assets/new69/avatar.png" alt="">
+                        <div class="div_cmt_user_profile_rep_size">
+                            <img class="img_cmt_user_profile_rep" src="/assets/new69/defaultavatar.png" alt="">
+                        </div>
                     </div>
                     <div class="div_content_rep">
                         <div class="div_content_cmt_rep">
@@ -61,7 +63,9 @@
     </div>
     <div class="div_comment row">
         <div class="div_profile">
-            <img class="img_profile" src="/assets/new69/avatar.png" alt="">
+            <div class="div_profile_cmt">
+                <img class="img_profile" src="{{photoUrl}}" alt="">
+            </div>
         </div>
         <div class="div_input_cmt">
             <div class="div_input_cmt1">

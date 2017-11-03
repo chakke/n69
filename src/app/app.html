@@ -8,25 +8,25 @@
         </div>
         <div class="border4">
             <div class="border5">
-                <img class="image" id="avatarimage">
+                <img class="image" src="{{userInfo.photoUrl}}">
             </div>
         </div>
         <div class="logout">
-            <span>{{mNew69Menu.username}}</span>
+            <span *ngIf="userInfo">{{userInfo.displayName}}</span>
             <div class="logoutbtn" (tap)="onClickGoLogout()">Đăng xuất</div>
         </div>
         <div class="list">
-            <ion-list class="list-title" no-lines>
+            <div class="list-title">
                 <div *ngFor="let category of mNew69Menu.categories">
-                    <ion-list-header class="list-header" no-lines>
+                    <div class="list-header">
                         {{category.name}}
-                    </ion-list-header>
-                    <ion-item [class.activated]="item.isActive" *ngFor="let item of category.items" (click)="onClickNew69Item(category,item)">
+                    </div>
+                    <div class="list-item" [class.activated]="item.isActive" *ngFor="let item of category.items" (tap)="onClickItem(category,item)">
                         <ion-icon class="list-icon" name="{{item.icon}}"></ion-icon>
                         <label class="list-label">{{item.name}}</label>
-                    </ion-item>
+                    </div>
                 </div>
-            </ion-list>
+            </div>
         </div>
     </div>
 </ion-menu>
@@ -54,8 +54,8 @@
                         {{category.name}}
                     </div>
                     <div class="list-item" [class.activated]="item.isActive" *ngFor="let item of category.items" (tap)="onClickItem(category,item)">
-                            <ion-icon class="list-icon" name="{{item.icon}}"></ion-icon>
-                            <label class="list-label">{{item.name}}</label>
+                        <ion-icon class="list-icon" name="{{item.icon}}"></ion-icon>
+                        <label class="list-label">{{item.name}}</label>
                     </div>
                 </div>
             </div>

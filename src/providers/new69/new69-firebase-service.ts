@@ -26,7 +26,9 @@ export class New69FirebaseService {
             this.postFirebase.child(key).child(user).push({
                 userCmt: user,
                 cmtContent: cmtContent,
-                timeCmt: new Date().getTime()
+                timeCmt: new Date().getTime(),
+                like : 0,
+                userProfile: ""
             }).then(() => {
                 resolve(true)
             })

@@ -78,12 +78,16 @@ comment-page{
                 .div_cmt_user_profile_rep{
                     height: 100%;
                     width: 15%;
-                    .img_cmt_user_profile_rep{
-                        height: 100%;
-                        width: 100%;
-                        background-color: red;
-                        border-radius: 50%;
+                    .div_cmt_user_profile_rep_size{
+                        height: 2.5em;
+                        width: 2.5em;
+                        .img_cmt_user_profile_rep{
+                            height: 100%;
+                            width: 100%;
+                            border-radius: 50%;
+                        }
                     }
+                    
                 }
                 .div_content_rep{
                     height: 100%;
@@ -125,11 +129,16 @@ comment-page{
             padding-top: 0.33em;
             padding-bottom: 0.33em;
             padding-left: 0.33em;
-            .img_profile{
-                border-radius: 50%;
-                height: 100%;
-                background-color: aqua;
+            .div_profile_cmt{
+                height: 2.5em;
+                width: 2.5em;
+                .img_profile{
+                    border-radius: 50%;
+                    height: 100%;
+                    background-color: aqua;
+                }
             }
+            
         }
         .div_input_cmt{
             width: 70%;

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Platform, MenuController, App, LoadingController } from 'ionic-angular';
+import { Platform, MenuController, App, LoadingController, Events } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Storage } from "@ionic/storage";
@@ -13,6 +13,7 @@ export class MenuItem {
   page: string;
   isActive: boolean;
   isLogin: boolean;
+
 }
 export class MenuCategory {
   id: number;
@@ -37,10 +38,13 @@ export class MyApp {
 
   mNew69Menu: any = [];
 
+  userInfo: any = [];
+
   constructor(
     platform: Platform,
     statusBar: StatusBar,
     splashScreen: SplashScreen,
+    public event: Events,
     public mNew69Module: New69Module,
     public app: App,
     public menuCtrl: MenuController,
@@ -53,6 +57,14 @@ export class MyApp {
       this.mNew69Menu = this.mNew69Module.mNew69Menu;
       this.menuCtrl.enable(true, "loginNew69");
       this.menuCtrl.enable(false, "logoutNew69");
+      this.event.subscribe("userInfo", (user) => {
+        this.userInfo = user[0];
+      });
+      this.storage.get('userInfo').then(user =>{
+        if(user != null && user != undefined){
+          this.userInfo = user[0];          
+        }
+      })
     });
   }
 
@@ -61,6 +73,15 @@ export class MyApp {
       this.app.getRootNav().setRoot("LoginPage")
     })
   }
+
+  onClickGoLogout() {
+
+    this.menuCtrl.close().then(() => {
+      this.storage.remove("userInfo");
+      this.app.getRootNav().setRoot("HomePage");
+    })
+  }
+
 
   onClickItem(category: MenuCategory, item: MenuItem) {
     this.menuCtrl.close();
@@ -90,12 +111,12 @@ export class MyApp {
         this.app.getRootNav().setRoot(item.page);
       }
     }
-    if(item.name == "Xóa bộ nhớ đệm"){
+    if (item.name == "Xóa bộ nhớ đệm") {
       let loading = this.loadingCtrl.create({
         spinner: "crescent"
       });
-      loading.present();      
-      this.storage.clear().then(()=>{
+      loading.present();
+      this.storage.clear().then(() => {
         loading.dismiss();
       })
     }

@@ -13,6 +13,7 @@ import { MyApp }                from './app.component';
 import { SuperTabsModule }      from 'ionic2-super-tabs'; 
 
 import { AngularFireModule }    from 'angularfire2';
+import { AngularFireAuth } from "angularfire2/auth";
 import { GooglePlus }           from "@ionic-native/google-plus";
 import { Facebook }             from "@ionic-native/facebook";
 import firebase                 from "firebase";
@@ -72,6 +73,7 @@ firebase.initializeApp(firebaseConfig);
     New69Module,
     HttpService,
     New69FirebaseService,
+    AngularFireAuth,
     GooglePlus,
     Facebook
   ]
