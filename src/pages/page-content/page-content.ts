@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+// import { ViewChild, ElementRef, Renderer } from "@angular/core";
+
 import { DomSanitizer, SafeResourceUrl } from "@angular/platform-browser";
 import { IonicPage, NavParams, LoadingController, NavController } from 'ionic-angular';
 
@@ -12,6 +14,14 @@ import { Storage } from "@ionic/storage";
     templateUrl: 'page-content.html',
 })
 export class PageContent {
+    // @ViewChild(Content) content: Content;
+    // start = 0;
+    // threshold = 100;
+    // slideHeaderPrevious = 0;
+    // ionScroll:any;
+    // showheader:boolean;
+    // hideheader:boolean;
+    // headercontent:any;
 
     isShow: boolean = false;
 
@@ -27,7 +37,8 @@ export class PageContent {
         public storage: Storage,
 
     ) {
-
+        // this.showheader =false;
+        // this.hideheader = true;
     }
 
     ionViewDidEnter() {
@@ -38,6 +49,26 @@ export class PageContent {
             this.postRead(post);
         }, 1000);
     }
+
+    // ngOnInit() {
+    //     // Ionic scroll element
+    //     this.ionScroll = this.myElement.nativeElement.getElementsByClassName('scroll-content')[0];
+    //     // On scroll function
+    //     this.ionScroll.addEventListener("scroll", () => {
+    //         if (this.ionScroll.scrollTop - this.start > this.threshold) {
+    //             this.showheader = true;
+    //             this.hideheader = false;
+    //         } else {
+    //             this.showheader = false;
+    //             this.hideheader = true;
+    //         }
+    //         if (this.slideHeaderPrevious >= this.ionScroll.scrollTop - this.start) {
+    //             this.showheader = false;
+    //             this.hideheader = true;
+    //         }
+    //         this.slideHeaderPrevious = this.ionScroll.scrollTop - this.start;
+    //     });
+    // }
 
     postRead(objectPost: any) {
         let postRead: any = [];
@@ -60,13 +91,10 @@ export class PageContent {
         this.mNavController.pop();
     }
 
-    goComment(){
+    goComment() {
         let post = this.navParams.get('postId');
-        this.mNavController.push("CommentPage", { postId: post});
+        this.mNavController.push("CommentPage", { postId: post });
     }
-    // goContentPage(post_content: any) {
-    //     this.navController.push("PageContent", { postId: post_content });
-    // }
 
     goShare() {
 
@@ -79,8 +107,26 @@ export class PageContent {
         }
     }
 
+    savePost() {
+        let post = this.navParams.get('postId');
+        let userInfo: any = [];
+        this.storage.get('userInfo').then(user => {
+            if (user != null && user != undefined) {
+                userInfo = user[0];
+                alert("Lưu thành công")
+                // this.mFirebaseService.addComment(post.key, userInfo.displayName, this.comment);
+            } else {
+                alert("Bạn cần đăng nhập để bình luận");
+            }
+
+        })
+
+    }
+
     onClickBack() {
         this.mNavController.pop();
     }
+
+
 
 }

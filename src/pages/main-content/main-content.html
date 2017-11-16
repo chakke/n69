@@ -1,12 +1,12 @@
 <ion-content class="haspost" id="haspost">
   <!-- refresh data -->
   <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content refreshingText="Refreshing..."></ion-refresher-content>
+    <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   <!-- nội dung bài đầu -->
   <div *ngIf="firstPost" (click)="goContentPage(firstPost)">
     <div>
-      <img class="post1" src="{{avatarUrl}}">
+      <img *ngIf="avatarUrl" class="post1" src="{{avatarUrl}}">
     </div>
     <p id="title" class="title">{{title}}</p>
     <p id="description" class="description">{{description}}</p>
@@ -19,10 +19,10 @@
   </div>
   <!-- danh sách các bài -->
   <div *ngFor="let post of otherPost" class="a3-container a3-items-center a-post" (tap)="goContentPage(post)">
-    <div class="a-post-avatar">
+    <div *ngIf="post" class="a-post-avatar">
       <img src="{{post.avatarUrl}}">
     </div>
-    <div class="a3-container a3-column a3-justify-between  a3-flex-1 post-description a1-height-100">
+    <div *ngIf="post" class="a3-container a3-column a3-justify-between  a3-flex-1 post-description a1-height-100">
       <div class="a-post-title">{{post.title}}</div>
       <div>
         <span class="time-post">

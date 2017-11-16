@@ -64,7 +64,9 @@ export class MyApp {
         if(user != null && user != undefined){
           this.userInfo = user[0];          
         }
-      })
+      });
+      let mViewData = this.mNew69Module.getAppConfig().getViewData("menuTitle");
+      this.storage.set("allList", mViewData.categorieName);
     });
   }
 
@@ -113,12 +115,13 @@ export class MyApp {
     }
     if (item.name == "Xóa bộ nhớ đệm") {
       let loading = this.loadingCtrl.create({
-        spinner: "crescent"
+        spinner: "crescent",
+        duration: 2000
       });
       loading.present();
-      this.storage.clear().then(() => {
-        loading.dismiss();
-      })
+      // this.storage.clear().then(() => {
+      //   loading.dismiss();
+      // })
     }
   }
 

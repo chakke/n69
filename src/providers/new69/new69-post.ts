@@ -52,7 +52,7 @@ export class Post {
     onResponsePost(data) {
         this.contentId = data.contentId;
         this.url = data.url;
-        this.date = this.convertTime(data.date);
+        this.date = this.convertTime(data.date * 1000);
         this.title = data.title;
         this.description = data.description;
         this.avatarUrl = data.avatarUrl;
@@ -60,7 +60,6 @@ export class Post {
         this.totalComments = data.totalComments;
         this.key = data.$key;
         this.allContent =  this.getUserCmt(data);
-        
     }
 
     getUserCmt(item): any[]{

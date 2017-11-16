@@ -12,6 +12,8 @@ export class New69FirebaseService {
 
     postFirebase = firebase.database().ref('/post');
 
+    arr: any;
+
     post: FirebaseListObservable<any>;
     video: FirebaseListObservable<any>;
     comment: FirebaseListObservable<any>;
@@ -27,7 +29,7 @@ export class New69FirebaseService {
                 userCmt: user,
                 cmtContent: cmtContent,
                 timeCmt: new Date().getTime(),
-                like : 0,
+                like: 0,
                 userProfile: ""
             }).then(() => {
                 resolve(true)
@@ -36,36 +38,29 @@ export class New69FirebaseService {
         return promise;
     }
 
-    getCommentPerEachPost() {
-        this.comment = this.mFirebase.list('/post/0/user1');
-    }
-
-    getCommentOfComment(namePost, nameUser, keyUser) {
-        this.commentOfCmt = this.mFirebase.list('/post' + '/' + namePost + '/' + nameUser + '/' + keyUser);
-    }
-
-
     getData() {
         this.video = this.mFirebase.list('/video');
     }
 
     getPostFirebase() {
         this.post = this.mFirebase.list('/post');
-
     }
+
     pushData(data: any) {
-        this.post.push({
-            contentId: data.contentId,
-            url: data.url,
-            date: data.date,
-            title: data.title,
-            description: data.description,
-            avatarUrl: data.avatarUrl,
-            categoryName: data.categoryName,
-            totalComments: data.totalComments
-        }).then(() => {
-            console.log("done!");
-        }, (error) => console.log(error));
+        this.post = this.mFirebase.list('/post');
+        for (let item of data.data){
+            this.post.push({
+                contentId: item.contentId,
+                url: item.url,
+                date: item.date,
+                title: item.title,
+                description: item.description,
+                avatarUrl: item.avatarUrl,
+                categoryName: item.categoryName,
+                totalComments: item.totalComments
+            });
+        }
+      
     }
 
     pushClipData(url: string, title: string, contentId: string, description: string, totalComments: string) {
@@ -82,6 +77,45 @@ export class New69FirebaseService {
         }).then(() => {
             console.log("done!");
         }, (error) => console.log(error));
+    }
+
+    deletePost(key: string) {
+        this.post = this.mFirebase.list('/post');
+        this.post.remove(key);
+    }
+
+    addPost(listPost) { // list 10 post    
+        this.post = this.mFirebase.list('/post');
+        this.post.subscribe(data => {
+            console.log(listPost[listPost.length - 1].contentId, data[data.length - 1].contentId);
+            
+            if (listPost[listPost.length - 1].contentId != data[data.length - 1].contentId) { //compare 2 last element of 2 array
+                for(let index in data){
+                    if(parseInt(index) < 11){
+                        console.log(index);
+                    }
+                }
+                for (let item of listPost) {
+                    this.post.push({
+                        contentId: item.contentId,
+                        url: item.url,
+                        date: item.date,
+                        title: item.title,
+                        description: item.description,
+                        avatarUrl: item.avatarUrl,
+                        categoryName: item.categoryName,
+                        totalComments: item.totalComments
+                    });
+                }
+            }
+            // if (data.length > 100) {
+            //     for (var key in data) {
+            //         if (parseInt(key) >= 100) {
+            //             this.post.remove(data[key])
+            //         }
+            //     }
+            // }
+        })
     }
 
 }

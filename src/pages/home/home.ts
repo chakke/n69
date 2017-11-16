@@ -81,14 +81,14 @@ export class HomePage {
     indexPage(index) {
         this.mNew69Module.titlePage = index.id;
         this.storage.get(index.id).then(data => {
+            console.log(data);
+            
             if (data == null || data == undefined) {
                 let loading = this.loadingCtrl.create({
                     spinner: "crescent",
                     duration: 500
                 });
-                this.storage.set(index.id, index.id).then(() => {
-                    console.log("Did load title!")
-                }, error => console.log(error));
+                this.storage.set(index.id, index.id);
                 loading.present();
             }
         });

@@ -15,7 +15,7 @@
 </ion-header>
 
 <ion-content>
-  <super-tabs class="supertabs" *ngIf="mDidLoadTitle" scrollTabs="false" toolbarColor="main" toolbarBackground="light" (tabSelect)="indexPage($event)">
+  <super-tabs class="supertabs" *ngIf="mDidLoadTitle" scrollTabs="true" toolbarColor="main" toolbarBackground="light" (tabSelect)="indexPage($event)">
     <super-tab id="home" [root]="pageMain" icon="ios-home-outline"></super-tab>
     <super-tab id="video" [root]="pageVideo" icon="ios-videocam-outline"></super-tab>
     <super-tab *ngFor="let list of mCategories" id="{{list.name}}" [root]="pageMain" title="{{list.name}}"></super-tab>

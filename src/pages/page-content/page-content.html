@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header [ngClass]="{'hide-header':showheader,'show-header':hideheader}">
   <div class="header">
     <div class="statusbar-height"></div>
     <div class="a3-container a3-items-center a3-justify-between">
@@ -13,7 +13,7 @@
           <ion-icon name="ios-chatboxes-outline" color="light" (tap)="goComment()"></ion-icon>
         </button>
         <button class="button">
-          <ion-icon name="ios-bookmark-outline" color="light"></ion-icon>
+          <ion-icon name="ios-bookmark-outline" color="light" (tap)="savePost()"></ion-icon>
         </button>
         <button class="button">
           <ion-icon name="md-share" color="light" (click)="goShare()">

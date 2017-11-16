@@ -8,6 +8,8 @@ import { Post } from "../../providers/new69/new69-post";
 
 import { New69FirebaseService } from "../../providers/new69/new69-firebase-service";
 
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from "angularfire2/database-deprecated";
+
 
 @IonicPage()
 @Component({
@@ -37,6 +39,8 @@ export class MainContentPage {
 
     // private start: number = 0;
 
+    post: FirebaseListObservable<any>;
+    item: FirebaseObjectObservable<any>;
     constructor(
         public navCtrl: NavController,
         public app: App,
@@ -45,24 +49,28 @@ export class MainContentPage {
         public loadingCtrl: LoadingController,
         private storage: Storage,
         public mFirebase: New69FirebaseService,
+
+        public afd: AngularFireDatabase
+
     ) {
         this.navController = app.getRootNav();
     }
 
+    ngOnInit() {
+        this.post = this.afd.list('post');
+        this.item = this.afd.object('post/1');
+    }
+
     ionViewDidLoad() {
-        this.mFirebase.getPostFirebase();
-        this.mFirebase.post.subscribe(data =>{
-                let post = new Post();
-                post.onResponsePost(data[0])
-                console.log(post);
-                
-        })
+
     }
 
     ionViewDidEnter() {
+        // this.updateData();
         setTimeout(() => {
             // this.loadAllData(this.mNew69Module.titlePage);
-            this.loadAllDataFirebase(this.mNew69Module.titlePage);
+            // this.loadAllDataFirebase(this.mNew69Module.titlePage);
+            this.getDataFirebase(this.mNew69Module.titlePage);
         }, 100);
     }
 
@@ -84,39 +92,21 @@ export class MainContentPage {
         }
     }
 
-    /**Hàm lấy dữ liệu từ firebase */
-    getPostFirebase() {
+    getDataFirebase(titlePage: string) {
         let loading = this.loadingCtrl.create({
             spinner: "crescent"
         });
-        loading.present();
-        this.mFirebase.getPostFirebase();
-        this.mFirebase.post.subscribe((data) => {
+        // loading.present();
+        this.post.subscribe(data => {
+            this.postsFirebase = [];
             data.forEach(item => {
                 let post = new Post();
                 post.onResponsePost(item);
                 this.postsFirebase.push(post);
-            })
+            });
             this.loadPost(this.postsFirebase);
             loading.dismiss();
-            this.storage.set("dataFirebase", this.postsFirebase).then(() => {
-                console.log("Stored data");
-            });
-        });
-    }
-
-    /**Hàm xử lý dữ liệu Firebase*/
-    loadAllDataFirebase(titlePage: string) {
-        this.storage.get('dataFirebase').then(data => {
-            if (data == null || data == undefined) {
-                this.getPostFirebase();
-                return
-            };
-            this.loadDataPage(titlePage, data);
-            this.mNew69Module.didLoadPost = true;
-        }, error => {
-            console.log(error);
-            this.getPostFirebase();
+            this.loadDataPage(titlePage, this.postsFirebase);
         });
     }
 
@@ -144,20 +134,71 @@ export class MainContentPage {
         this.totalComments = object.totalComments;
     }
 
+    /**Hàm update dữ liệu */
+    updateData() {
+        this.mNew69Module.getHttpService().requestPostDetail().then(data => {
+            // this.mFirebase.pushData(data);
+        });
+    }
+
+    editData() {
+        this.post.subscribe(data => {
+            let lastIndex = data.length - 1;
+            let lastIndex10 = data.length - 11;
+            console.log(data.length);
+
+            if (data[data.length - 1] == data[data.length - 11]) {
+                // this.rmDuplicatePost(data);
+            }
+            else if (data.length > 250) {
+                // this.rmLastPost(data);
+            }
+            else if (data[data.length - 1] != data[data.length - 11]) {
+                // this.rmFirstPost(data);
+            }
+        });
+    }
+
+    rmDuplicatePost(listPost) {
+        for (var key in listPost) {
+            if (parseInt(key) > listPost.length - 10) {
+                this.mFirebase.deletePost(listPost[key])
+            }
+        }
+    }
+    rmLastPost(listPost) {
+        for (var key in listPost) {
+            if (parseInt(key) > 249) {
+                this.mFirebase.deletePost(listPost[key])
+            }
+        }
+    }
+
+    rmFirstPost(listPost) {
+        for (var key in listPost) {
+            if (parseInt(key) < 10) {
+                this.mFirebase.deletePost(listPost[key])
+            }
+        }
+    }
+
     /**Hàm refresh dữ liệu */
     doRefresh(refresher) {
-        console.log('start refresh', refresher);
         setTimeout(() => {
-            this.loadAllDataFirebase(this.mNew69Module.titlePage);
-            console.log('refresh has complete!');
+            this.updateData();
+            // this.editData();
             refresher.complete();
         }, 500);
     }
+
+
 
     /**Hàm thêm dữ liệu khi scroll */
     doInfinite(infiniteScroll: any) {
         setTimeout(() => {
             let startNumberIndex: number = this.otherPost.length;
+            console.log(this.allPost);
+
             if (startNumberIndex < this.allPost.length - 4) {
                 for (let i = startNumberIndex; i < startNumberIndex + 4; i++) {
                     if (i > startNumberIndex) {
@@ -167,7 +208,6 @@ export class MainContentPage {
             }
             infiniteScroll.complete();
         }, 1000);
-        // console.log(this.otherPost);
     }
 
     goContentPage(post_content: any) {

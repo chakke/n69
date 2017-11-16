@@ -33,4 +33,18 @@ page-content {
     -webkit-overflow-scrolling: touch;
     overflow: hidden;
   }
+
+
+  .scroll-content{
+    top:-65px !important;
+    padding-top: 65px !important;
+  }
+  .hide-header{
+    transition : top 0.25s ease;
+    top: -65px;
+  }
+  .show-header{
+    transition : top 0.25s ease;
+    top: 0px;
+  }
 }

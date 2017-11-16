@@ -34,4 +34,7 @@ page-home {
     ion-content.has-refresher > .scroll-content{
         overflow-y: scroll;
     }
+    .button-md-primary{
+        background-color: map-get($new69Colors, red );  
+    }
 }
